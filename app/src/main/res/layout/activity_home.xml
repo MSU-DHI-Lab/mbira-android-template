@@ -1,0 +1,346 @@
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <!-- Main Content View -->
+    <FrameLayout
+    android:id="@+id/content_frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="bottom">
+
+
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/projectImage"
+                android:layout_above="@+id/exploreExhibitsButton">
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/projectImageView"
+                        android:src="@drawable/beaumont"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop" />
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="left|top">
+
+                    <RelativeLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/projectTitle"
+                            android:textColor="#ffffff"
+                            android:textSize="30sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/projectDescription"
+                            android:textColor="#ffffffff"
+                            android:layout_below="@+id/projectTitle"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <include
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/app_bar_transparent"
+                android:id="@+id/app_bar_transparent" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/exploreExhibitsButton"
+                android:src="@drawable/main_exploreexhibits"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:padding="0dp"
+                android:layout_margin="0dp"
+                android:contentDescription="@string/exploreExhibits"
+                android:onClick="exhibits"
+                android:layout_above="@+id/viewExplorationsButton" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/viewExplorationsButton"
+                android:src="@drawable/main_viewexplorations"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:padding="0dp"
+                android:layout_margin="0dp"
+                android:contentDescription="@string/viewExplorations"
+                android:onClick="explorations"
+                android:layout_above="@+id/viewAllLocationsButton" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/viewAllLocationsButton"
+                android:src="@drawable/main_viewallplaces"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:padding="0dp"
+                android:layout_margin="0dp"
+                android:contentDescription="@string/viewAll"
+                android:onClick="places"
+                android:layout_above="@+id/viewRandomPlaceButton" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/viewRandomPlaceButton"
+                android:src="@drawable/main_viewrandomplace"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:padding="0dp"
+                android:layout_margin="0dp"
+                android:contentDescription="@string/viewRandom"
+                android:onClick="random"
+                android:layout_above="@+id/learnMoreButton" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/learnMoreButton"
+                android:src="@drawable/main_learnmoreabout"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:padding="0dp"
+                android:layout_margin="0dp"
+                android:contentDescription="@string/learnMore"
+                android:onClick="learnMore"
+                android:layout_alignParentEnd="false"
+                android:layout_alignParentBottom="true" />
+
+            <!--<RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:clickable="true"
+                android:background="#78909c"
+                android:id="@+id/exploreExhibitsButton"
+                android:layout_weight="12">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:text="@string/exploreExhibits"
+                    android:id="@+id/exploreExhibits"
+                    android:textColor="#ffffffff"
+                    android:textSize="30sp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:text="@string/rightArrow"
+                    android:id="@+id/rightArrow"
+                    android:textColor="#ffffffff"
+                    android:textSize="40sp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentStart="false"
+                    android:gravity="center_vertical"
+                    android:paddingRight="20dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:clickable="true"
+                android:background="#546e7a"
+                android:id="@+id/viewExplorationsButton"
+                android:layout_weight="12">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:text="@string/viewExplorations"
+                    android:id="@+id/viewExplorations"
+                    android:textColor="#ffffffff"
+                    android:textSize="30sp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:text="@string/rightArrow"
+                    android:id="@+id/rightArrow2"
+                    android:textColor="#ffffffff"
+                    android:textSize="40sp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentStart="false"
+                    android:gravity="center_vertical"
+                    android:paddingRight="20dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:clickable="true"
+                android:background="#455a64"
+                android:id="@+id/viewAllButton"
+                android:layout_weight="12">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:text="@string/viewAll"
+                    android:id="@+id/viewAll"
+                    android:textColor="#ffffffff"
+                    android:textSize="30sp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:text="@string/rightArrow"
+                    android:id="@+id/rightArrow3"
+                    android:textColor="#ffffffff"
+                    android:textSize="40sp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentStart="false"
+                    android:gravity="center_vertical"
+                    android:paddingRight="20dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:clickable="true"
+                android:background="#37474f"
+                android:id="@+id/viewRandomButton"
+                android:layout_weight="12">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:text="@string/viewRandom"
+                    android:id="@+id/viewRandom"
+                    android:textColor="#ffffffff"
+                    android:textSize="30sp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:text="@string/rightArrow"
+                    android:id="@+id/rightArrow4"
+                    android:textColor="#ffffffff"
+                    android:textSize="40sp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentStart="false"
+                    android:gravity="center_vertical"
+                    android:paddingRight="20dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:clickable="true"
+                android:background="#263238"
+                android:id="@+id/learnMoreButton"
+                android:layout_weight="12">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:text="@string/learnMore"
+                    android:id="@+id/learnMore"
+                    android:textColor="#ffffffff"
+                    android:textSize="30sp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:text="@string/rightArrow"
+                    android:id="@+id/rightArrow5"
+                    android:textColor="#ffffffff"
+                    android:textSize="40sp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentStart="false"
+                    android:gravity="center_vertical"
+                    android:paddingRight="20dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>-->
+
+        </RelativeLayout>
+
+    </FrameLayout>
+    <!-- drawer content -->
+    <LinearLayout
+        android:id="@+id/left_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:background="#111" >
+
+        <ListView android:id="@+id/menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:choiceMode="singleChoice"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp"
+            android:background="#111" >
+        </ListView>
+    </LinearLayout>
+</android.support.v4.widget.DrawerLayout>

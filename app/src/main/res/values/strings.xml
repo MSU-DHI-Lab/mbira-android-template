@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">mbira</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="rightArrow"><![CDATA[>]]></string>
+    <string name="exploreExhibits">Explore Exhibits</string>
+    <string name="viewExplorations">View Explorations</string>
+    <string name="viewAll">View All Places</string>
+    <string name="viewRandom">View Random Place</string>
+    <string name="learnMore">Learn More</string>
+    <string name="title_activity_exhibits">exhibitsActivity</string>
+    <string name="title_activity_explorations">explorationsActivity</string>
+    <string name="title_activity_places">placesActivity</string>
+    <string name="title_activity_random">randomActivity</string>
+    <string name="title_activity_learn_more">learnMoreActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_loading">LoadingActivity</string>
+    <string name="title_activtiy_single_location">SingleLocation</string>
+    <string name="share">Share</string>
+    <string name="search">Search</string>
+    <string name="project_description">Lorem ipsum dolor sit amet, est diceret petentium consequuntur ex. Nam mazim oblique no, has ea alienum appareat assentior, cum illum tincidunt definiebas an. Vel ex legere verterem constituto, id sed choro posidonium, ius fabellas deserunt ut. Audiam eruditi gloriatur cu quo. Ubique graecis fastidii ea qui. \n\n Ea idque suscipiantur usu. Eos te impetus mentitum antiopam, cum blandit fabellas an. Ferri aliquip reprehendunt in sit, ad his adipisci consulatu. Ex fuisset signiferumque cum, pri soluta iracundia honestatis ne. Est te eros aliquam tincidunt, ne vel posse utroque albucius, sit et laudem graeco singulis. At usu exerci eirmod, molestie iudicabit ne quo.\n\n Utinam dictas hendrerit an quo. Et has vide iudico dicant, est ceteros repudiandae definitiones an. At per minim appetere, ea labores neglegentur vel, alia habeo feugiat ea per. Ullum etiam et vim.\n\n Nonumes disputando conclusionemque duo eu, vel no iisque tacimates, nec no unum atqui ullum. Per ridens nemore insolens id, ut fabellas tincidunt eos. Dicat labore maiestatis sit cu, ne sit voluptua expetendis incorrupte. At wisi perpetua vix, copiosae consequat similique an sea, et scripta aperiri sententiae nam. Pro eu quod iuvaret vivendum.\n\n Eu eius fuisset abhorreant nam, vis eu malis liber ponderum. Est in aeterno aliquando eloquentiam, no usu falli aperiri. Reque tibique tacimates vis ad. Assum debet ius at.</string>
+    <string name="project_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</string>
+    <string name="project_title">Project Title</string>
+    <string name="title_activity_single_exhibit">singleExhibit</string>
+    <string name="title_activity_single_exploration">SingleExplorationActivity</string>
+    <string name="streetMapId">mysterious.lejg5784</string>
+    <string name="testAccessToken">pk.eyJ1IjoibXlzdGVyaW91cyIsImEiOiJKTVd1SVlrIn0.RiQDVQ50y5sra5cYqQ5l9w</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="startExploration">START EXPLORATION</string>
+    <string name="Stops">Stops</string>
+
+    <string-array name="location_tabs_title">
+        <item>About</item>
+        <item>Dig Deeper</item>
+        <item>Media</item>
+        <item>Conversations</item>
+    </string-array>
+
+    <string name="title_activity_exhibit_map">ExhibitMapActivity</string>
+    <string name="title_activity_sign_in">SignInActivity</string>
+    <string name="expert_sign_in">Expert Sign In</string>
+    <string name="user_login">Username or Email</string>
+    <string name="user_password">Password</string>
+
+</resources>

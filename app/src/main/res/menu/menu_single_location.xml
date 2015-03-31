@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.bielicki.brandon.mbira.SingleLocation">
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/search_icon"
+        android:orderInCategory="200"
+        android:title="@string/search"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/exploration_icon"
+        android:icon="@drawable/exploration_icon"
+        android:orderInCategory="200"
+        android:title="Explore"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/share_icon"
+        android:icon="@drawable/share_icon"
+        android:orderInCategory="200"
+        android:title="Share"
+        app:showAsAction="always" />
+</menu>

@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bielicki.brandon.mbira.SignInActivity"
+    android:background="#37474F">
+
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/app_bar"
+        android:id="@+id/app_bar" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/userText"
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/app_bar"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="25dp"
+        android:editable="false"
+        android:inputType="text|textEmailAddress"
+        android:hint="@string/user_login"
+        android:textColorHint="#FFFFFF"
+        android:autoText="false" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/userPassword"
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/userText"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="25dp"
+        android:editable="false"
+        android:inputType="textPassword"
+        android:textColorHint="#FFFFFF"
+        android:password="true"
+        android:hint="@string/user_password" />
+
+    <ImageButton
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/signInButton"
+        android:src="@drawable/signin_button"
+        android:layout_margin="25dp"
+        android:padding="0dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:layout_below="@+id/userPassword"
+        android:onClick="signIn" />
+
+</RelativeLayout>
