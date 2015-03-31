@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/single_location"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.bielicki.brandon.mbira.SingleLocation">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/app_bar_transparent"
+            layout="@layout/app_bar_transparent" />
+
+
+        <ImageView
+            android:id="@+id/singleLocationImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:adjustViewBounds="true"
+            android:src="@drawable/beaumont" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/singleLocationTitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#445963"
+        android:padding="20dp"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        />
+
+    <com.bielicki.brandon.mbira.SlidingTabLayout
+        android:id="@+id/locationsTab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/singleLocationImageView"
+        android:background="#445963" />
+
+    <android.support.v4.view.ViewPager
+        android:background="#253137"
+        android:fillViewport="true"
+        android:id="@+id/locationPager"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@+id/locationsTab"
+        android:layout_weight="1" />
+
+
+</LinearLayout>

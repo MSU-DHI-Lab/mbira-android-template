@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript View</title>
+
+    <script type="text/javascript">
+    function showToast() {
+        var message = document.getElementById("message").value;
+        var lengthLong = document.getElementById("length").checked;
+
+        /*
+            Call the 'makeToast' method in the Java code.
+            'app' is specified in MainActivity.java when
+            adding the JavaScript interface.
+         */
+        JSInterface.makeToast(message, lengthLong);
+        return false;
+    }
+
+    /*
+        Call the 'showToast' method when the form gets
+        submitted (by pressing button or return key on keyboard).
+     */
+    window.onload = function() {
+        var form = document.getElementById("form");
+        form.onsubmit = showToast;
+    }
+    </script>
+</head>
+
+<body>
+
+    <form id="form">
+        Message:
+        <input id="message" name="message" type="text" />
+        <br /> Long:
+        <input id="length" name="length" type="checkbox" />
+        <br />
+
+        <input type="submit" value="Make Toast" />
+    </form>
+
+</body>
+
+</html>

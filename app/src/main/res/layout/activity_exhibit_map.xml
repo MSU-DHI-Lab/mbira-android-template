@@ -1,0 +1,21 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    tools:context="com.bielicki.brandon.mbira.ExhibitMapActivity"
+    android:padding="0dp">
+
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/app_bar"
+        android:id="@+id/app_bar" />
+
+    <com.mapbox.mapboxsdk.views.MapView
+        android:id="@+id/mapview"
+        android:layout_below="@+id/app_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        mapbox:mapid="@string/streetMapId"
+        mapbox:accessToken="@string/testAccessToken"/>
+</RelativeLayout>
