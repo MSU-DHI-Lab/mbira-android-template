@@ -4,7 +4,8 @@
 
     <uses-sdk
         android:minSdkVersion="3"
-        android:targetSdkVersion="4" />
+        android:targetSdkVersion="4"
+        />
 
     <!-- Include following permission if you load images from Internet -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -69,6 +70,10 @@
         <activity
             android:name=".SignInActivity"
             android:label="@string/title_activity_sign_in" >
+        </activity>
+        <activity
+            android:name=".ExplorationMapActivity"
+            android:label="@string/title_activity_exploration_map" >
         </activity>
     </application>
 

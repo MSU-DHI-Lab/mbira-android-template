@@ -22,7 +22,6 @@ public class ExhibitMapActivity extends ActionBarActivity {
 
     AppData project = AppData.get();
     private WebView mWebView;
-//    JavaScriptInterface JSInterface;
 
     // MapBox
     private MapView mv;
@@ -44,7 +43,6 @@ public class ExhibitMapActivity extends ActionBarActivity {
         mv.setMaxZoomLevel(mv.getTileProvider().getMaximumZoomLevel());
         mv.setCenter(mv.getTileProvider().getCenterCoordinate());
         mv.setZoom(0);
-        //currentMap = getString(R.string.streetMapId);
         currentMap = getResources().getString(R.string.streetMapId);
 
         // Show user location
@@ -58,6 +56,7 @@ public class ExhibitMapActivity extends ActionBarActivity {
             m.setIcon(new Icon(this, Icon.Size.LARGE, "", "3EB9FD"));
             mv.addMarker(m);
         }
+
 
         mv.setOnClickListener(new View.OnClickListener() {
             @Override
