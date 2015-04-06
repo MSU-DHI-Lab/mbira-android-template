@@ -45,5 +45,6 @@
     <string name="expert_sign_in">Expert Sign In</string>
     <string name="user_login">Username or Email</string>
     <string name="user_password">Password</string>
+    <string name="title_activity_exploration_map">ExplorationMapActivity</string>
 
 </resources>

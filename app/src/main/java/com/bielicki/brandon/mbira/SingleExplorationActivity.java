@@ -26,6 +26,7 @@ public class SingleExplorationActivity extends ActionBarActivity {
     private Toolbar toolbar;
     AppData project = AppData.get();
     private NonScrollListView stopsList;
+    int pos, explorationId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +34,8 @@ public class SingleExplorationActivity extends ActionBarActivity {
         setContentView(R.layout.activity_single_exploration);
 
         Intent intent = getIntent();
-        int pos = intent.getIntExtra("pos",0);
-        int explorationId = intent.getIntExtra("explorationId", 0);
+        pos = intent.getIntExtra("pos",0);
+        explorationId = intent.getIntExtra("explorationId", 0);
         Exploration exploration = project.getExplorationArrayList().get(pos);
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
@@ -72,5 +73,12 @@ public class SingleExplorationActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void explorationMap(View view) {
+        Intent startExplorationMap = new Intent(this, ExplorationMapActivity.class);
+        startExplorationMap.putExtra("explorationId", explorationId);
+        startExplorationMap.putExtra("pos", pos);
+        startActivity(startExplorationMap);
     }
 }

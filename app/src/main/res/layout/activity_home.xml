@@ -1,26 +1,26 @@
-<android.support.v4.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <!-- Main Content View -->
     <FrameLayout
-    android:id="@+id/content_frame"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical"
-            android:gravity="bottom">
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:gravity="bottom"
+            android:orientation="vertical">
 
 
             <RelativeLayout
+                android:id="@+id/projectImage"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:id="@+id/projectImage"
                 android:layout_above="@+id/exploreExhibitsButton">
 
                 <FrameLayout
@@ -28,26 +28,26 @@
                     android:layout_height="fill_parent">
 
                     <ImageView
+                        android:id="@+id/projectImageView"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:id="@+id/projectImageView"
-                        android:src="@drawable/beaumont"
                         android:adjustViewBounds="true"
-                        android:scaleType="centerCrop" />
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/beaumont" />
 
                 </FrameLayout>
 
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:layout_gravity="left|top">
+                    android:layout_gravity="left|top"
+                    android:orientation="vertical">
 
                     <RelativeLayout
-                        android:orientation="horizontal"
                         android:layout_width="fill_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
 
                     </RelativeLayout>
 
@@ -57,18 +57,18 @@
                         android:layout_weight="1">
 
                         <TextView
+                            android:id="@+id/projectTitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/projectTitle"
                             android:textColor="#ffffff"
                             android:textSize="30sp" />
 
                         <TextView
+                            android:id="@+id/projectDescription"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/projectDescription"
-                            android:textColor="#ffffffff"
                             android:layout_below="@+id/projectTitle"
+                            android:textColor="#ffffffff"
                             android:textStyle="bold" />
                     </RelativeLayout>
                 </LinearLayout>
@@ -76,76 +76,76 @@
             </RelativeLayout>
 
             <include
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:id="@+id/app_bar_transparent"
                 layout="@layout/app_bar_transparent"
-                android:id="@+id/app_bar_transparent" />
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
 
             <ImageButton
+                android:id="@+id/exploreExhibitsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/exploreExhibitsButton"
-                android:src="@drawable/main_exploreexhibits"
-                android:scaleType="centerCrop"
-                android:adjustViewBounds="true"
-                android:padding="0dp"
+                android:layout_above="@+id/viewExplorationsButton"
                 android:layout_margin="0dp"
+                android:adjustViewBounds="true"
                 android:contentDescription="@string/exploreExhibits"
                 android:onClick="exhibits"
-                android:layout_above="@+id/viewExplorationsButton" />
+                android:padding="0dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/main_exploreexhibits" />
 
             <ImageButton
+                android:id="@+id/viewExplorationsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/viewExplorationsButton"
-                android:src="@drawable/main_viewexplorations"
-                android:scaleType="centerCrop"
-                android:adjustViewBounds="true"
-                android:padding="0dp"
+                android:layout_above="@+id/viewAllLocationsButton"
                 android:layout_margin="0dp"
+                android:adjustViewBounds="true"
                 android:contentDescription="@string/viewExplorations"
                 android:onClick="explorations"
-                android:layout_above="@+id/viewAllLocationsButton" />
+                android:padding="0dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/main_viewexplorations" />
 
             <ImageButton
+                android:id="@+id/viewAllLocationsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/viewAllLocationsButton"
-                android:src="@drawable/main_viewallplaces"
-                android:scaleType="centerCrop"
-                android:adjustViewBounds="true"
-                android:padding="0dp"
+                android:layout_above="@+id/viewRandomPlaceButton"
                 android:layout_margin="0dp"
+                android:adjustViewBounds="true"
                 android:contentDescription="@string/viewAll"
                 android:onClick="places"
-                android:layout_above="@+id/viewRandomPlaceButton" />
+                android:padding="0dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/main_viewallplaces" />
 
             <ImageButton
+                android:id="@+id/viewRandomPlaceButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/viewRandomPlaceButton"
-                android:src="@drawable/main_viewrandomplace"
-                android:scaleType="centerCrop"
-                android:adjustViewBounds="true"
-                android:padding="0dp"
+                android:layout_above="@+id/learnMoreButton"
                 android:layout_margin="0dp"
+                android:adjustViewBounds="true"
                 android:contentDescription="@string/viewRandom"
                 android:onClick="random"
-                android:layout_above="@+id/learnMoreButton" />
+                android:padding="0dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/main_viewrandomplace" />
 
             <ImageButton
+                android:id="@+id/learnMoreButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/learnMoreButton"
-                android:src="@drawable/main_learnmoreabout"
-                android:scaleType="centerCrop"
-                android:adjustViewBounds="true"
-                android:padding="0dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="false"
                 android:layout_margin="0dp"
+                android:adjustViewBounds="true"
                 android:contentDescription="@string/learnMore"
                 android:onClick="learnMore"
-                android:layout_alignParentEnd="false"
-                android:layout_alignParentBottom="true" />
+                android:padding="0dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/main_learnmoreabout" />
 
             <!--<RelativeLayout
                 android:orientation="horizontal"
@@ -328,19 +328,19 @@
         android:layout_width="240dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="#111"
         android:choiceMode="singleChoice"
         android:divider="@android:color/transparent"
-        android:dividerHeight="0dp"
-        android:background="#111" >
+        android:dividerHeight="0dp">
 
-        <ListView android:id="@+id/menu"
+        <ListView
+            android:id="@+id/menu"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="start"
+            android:background="#111"
             android:choiceMode="singleChoice"
             android:divider="@android:color/transparent"
-            android:dividerHeight="0dp"
-            android:background="#111" >
-        </ListView>
+            android:dividerHeight="0dp"></ListView>
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>
