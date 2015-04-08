@@ -4,9 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.JsonWriter;
 import android.util.Log;
 import android.view.Menu;
@@ -30,6 +34,7 @@ import com.mapbox.mapboxsdk.geometry.BoundingBox;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.overlay.Icon;
 import com.mapbox.mapboxsdk.overlay.Marker;
+import com.mapbox.mapboxsdk.overlay.Overlay;
 import com.mapbox.mapboxsdk.overlay.UserLocationOverlay;
 import com.mapbox.mapboxsdk.tileprovider.tilesource.*;
 import com.mapbox.mapboxsdk.views.MapView;
@@ -46,12 +51,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 
-public class PlacesActivity extends Activity {
+public class PlacesActivity extends ActionBarActivity {
 
     // MapBox
     private MapView mv;
     private UserLocationOverlay myLocationOverlay;
     private String currentMap = null;
+    private Toolbar toolbar;
+
 
     // projectData
     AppData project;
@@ -65,6 +72,12 @@ public class PlacesActivity extends Activity {
 
         project = AppData.get();
         constants = Constants.get();
+
+//        Toolbar Code
+
+        toolbar = (Toolbar) findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitle("All Places");
 
         // MapBox Code
 
@@ -96,6 +109,21 @@ public class PlacesActivity extends Activity {
             m.setIcon(new Icon(this, Icon.Size.LARGE, "", "3EB9FD"));
             mv.addMarker(m);
         }
+
+//        // Test code to add cirlce
+//        class CircleOverlay extends Overlay {
+//            @Override
+//            protected void draw(Canvas canvas, MapView mapView, boolean shadow) {
+//                //do anything with the Canvas object
+//                Paint paint = new Paint();
+//                paint.setColor(Color.BLACK);
+//                paint.setStyle(Paint.Style.FILL);
+//                canvas.drawCircle(-20, -20, 20, paint);
+//            }
+//        }
+//
+//        CircleOverlay circle = new CircleOverlay();
+//        mv.addOverlay(circle);
 
         // On Click Listeners for the mapview
         mv.setOnClickListener(new View.OnClickListener() {

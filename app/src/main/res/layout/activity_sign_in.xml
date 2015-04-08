@@ -52,4 +52,17 @@
         android:layout_below="@+id/userPassword"
         android:onClick="signIn" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/newUser"
+        android:id="@+id/newUserButton"
+        android:layout_below="@+id/signInButton"
+        android:layout_centerHorizontal="true"
+        android:background="#29B6F6"
+        android:textColor="#fff"
+        android:onClick="newUser"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" />
+
 </RelativeLayout>

@@ -51,6 +51,7 @@ public class ExhibitMapActivity extends ActionBarActivity {
 
         Marker m;
 
+        // Loading all the markers in the exhibit chosen
         for(int x = 0; x < exhibit.getLocationArrayList().size(); x++) {
             m = new Marker(mv, exhibit.getLocationArrayList().get(x).name, "", new LatLng(exhibit.getLocationArrayList().get(x).latitude, exhibit.getLocationArrayList().get(x).longitude));
             m.setIcon(new Icon(this, Icon.Size.LARGE, "", "3EB9FD"));

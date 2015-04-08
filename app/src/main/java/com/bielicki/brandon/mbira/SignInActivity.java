@@ -1,18 +1,29 @@
 package com.bielicki.brandon.mbira;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
-public class SignInActivity extends ActionBarActivity {
+public class SignInActivity extends ActionBarActivity implements SetSignIn.PostSignIn {
     private Toolbar toolbar;
     private EditText user;
     private EditText password;
+    private ProgressDialog dialog;
+    SetSignIn signIn;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +36,7 @@ public class SignInActivity extends ActionBarActivity {
         user = (EditText) findViewById(R.id.userText);
         password = (EditText) findViewById(R.id.userPassword);
     }
+
 
 
     @Override
@@ -53,5 +65,36 @@ public class SignInActivity extends ActionBarActivity {
         String passwordValue = password.getText().toString();
         String userValue = user.getText().toString();
 
+        dialog = new ProgressDialog(this);
+        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        dialog.setMessage("Signing In");
+        dialog.setIndeterminate(true);
+        dialog.setCanceledOnTouchOutside(true);
+
+        dialog.show();
+
+
+        signIn = new SetSignIn(this);
+        signIn.execute(userValue, passwordValue);
+
+        dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+
+            public void onCancel(DialogInterface dialog) {
+                // TODO Auto-generated method stub
+                signIn.cancel(true);
+            }
+        });
+
+
+    }
+
+    public void postSignIn() {
+        dialog.dismiss();
+        // store password and username into sharedpreferences
+    }
+
+    public void newUser(View view) {
+        Intent intent = new Intent(this, NewUserForm.class);
+        startActivity(intent);
     }
 }

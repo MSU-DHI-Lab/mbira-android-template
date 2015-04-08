@@ -68,9 +68,10 @@ public class ExplorationMapActivity extends ActionBarActivity {
             if (exploration.getMapItemArrayList().get(x) instanceof Area)
             {
 
-                Area location = (Area) exploration.getMapItemArrayList().get(x);
+//                Area location = (Area) exploration.getMapItemArrayList().get(x);
 
                 m = new Marker(mv, ((Area)exploration.getMapItemArrayList().get(x)).name, "", new LatLng(((Area)exploration.getMapItemArrayList().get(x)).coordinates.get(0).getX(), ((Area)exploration.getMapItemArrayList().get(x)).coordinates.get(0).getY()));
+                Log.i( ((Area) exploration.getMapItemArrayList().get(x)).name, "Latitude: " + Double.toString(((Area) exploration.getMapItemArrayList().get(x)).coordinates.get(0).getX()) + "  Longitude: " + Double.toString(((Area) exploration.getMapItemArrayList().get(x)).coordinates.get(0).getY()));
                 m.setIcon(new Icon(this, Icon.Size.LARGE, Integer.toString(x+1), "455A64"));
                 mv.addMarker(m);
             }
@@ -78,9 +79,10 @@ public class ExplorationMapActivity extends ActionBarActivity {
             // Checking if the MapItem is of instance type Location
             else if (exploration.getMapItemArrayList().get(x) instanceof Location)
             {
-                Location location = (Location) exploration.getMapItemArrayList().get(x);
+//                Location location = (Location) exploration.getMapItemArrayList().get(x);
 
                 m = new Marker(mv, ((Location) exploration.getMapItemArrayList().get(x)).name, "", new LatLng(((Location) exploration.getMapItemArrayList().get(x)).latitude, ((Location) exploration.getMapItemArrayList().get(x)).longitude));
+                Log.i( ((Location) exploration.getMapItemArrayList().get(x)).name, "Latitude: " + Double.toString(((Location) exploration.getMapItemArrayList().get(x)).latitude) + "  Longitude: " + Double.toString(((Location) exploration.getMapItemArrayList().get(x)).longitude));
                 m.setIcon(new Icon(this, Icon.Size.LARGE, Integer.toString(x+1), "455A64"));
                 mv.addMarker(m);
 

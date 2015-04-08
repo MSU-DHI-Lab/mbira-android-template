@@ -46,7 +46,6 @@ public class MainActivity extends ActionBarActivity {
         projectTitle.setText(project.getProjectName());
 
 
-
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mLeftDrawer = (LinearLayout) findViewById(R.id.left_drawer);
     }
