@@ -7,6 +7,7 @@ package com.bielicki.brandon.mbira;
  */
 
 import android.graphics.Bitmap;
+import android.util.LruCache;
 
 import java.util.ArrayList;
 

@@ -3,6 +3,7 @@ package com.bielicki.brandon.mbira;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.util.LruCache;
 
 
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -29,6 +30,7 @@ public class SetProjectData extends AsyncTask<LoadingActivity,Void,AppData> {
     AppData project;
     LoadingActivity loading;
     Constants constants;
+
 
     @Override
     protected AppData doInBackground(LoadingActivity... x) {

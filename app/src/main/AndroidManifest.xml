@@ -68,12 +68,16 @@
             android:label="@string/title_activity_exhibit_map" >
         </activity>
         <activity
+            android:name=".ExplorationMapActivity"
+            android:label="@string/title_activity_exploration_map" >
+        </activity>
+        <activity
             android:name=".SignInActivity"
             android:label="@string/title_activity_sign_in" >
         </activity>
         <activity
-            android:name=".ExplorationMapActivity"
-            android:label="@string/title_activity_exploration_map" >
+            android:name=".NewUserForm"
+            android:label="@string/title_activity_new_user_form" >
         </activity>
     </application>
 
