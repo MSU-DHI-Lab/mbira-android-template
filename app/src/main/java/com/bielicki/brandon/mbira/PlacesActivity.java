@@ -8,6 +8,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.net.Uri;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -17,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -29,6 +31,8 @@ import com.cocoahero.android.geojson.Feature;
 import com.cocoahero.android.geojson.FeatureCollection;
 import com.cocoahero.android.geojson.Polygon;
 import com.cocoahero.android.geojson.Ring;
+import com.github.clans.fab.FloatingActionButton;
+
 import com.mapbox.mapboxsdk.api.ILatLng;
 import com.mapbox.mapboxsdk.geometry.BoundingBox;
 import com.mapbox.mapboxsdk.geometry.LatLng;
@@ -78,6 +82,41 @@ public class PlacesActivity extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("All Places");
+
+        // Floating Action Button
+
+        final FloatingActionButton randomLocationButton = (FloatingActionButton) findViewById(R.id.randomLocationButton);
+        final FloatingActionButton findMyLocationButton = (FloatingActionButton) findViewById(R.id.findMyLocationButton);
+
+        findMyLocationButton.hide(false);
+        randomLocationButton.hide(false);
+
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                findMyLocationButton.show(true);
+                randomLocationButton.show(true);
+                findMyLocationButton.setShowAnimation(AnimationUtils.loadAnimation(PlacesActivity.this, R.anim.show_from_buttom));
+                findMyLocationButton.setHideAnimation(AnimationUtils.loadAnimation(PlacesActivity.this, R.anim.hide_to_buttom));
+                randomLocationButton.setShowAnimation(AnimationUtils.loadAnimation(PlacesActivity.this, R.anim.show_from_buttom));
+                randomLocationButton.setHideAnimation(AnimationUtils.loadAnimation(PlacesActivity.this, R.anim.hide_to_buttom));
+            }
+        }, 300);
+
+        randomLocationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        findMyLocationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         // MapBox Code
 

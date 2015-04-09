@@ -20,4 +20,29 @@
         mapbox:mapid="@string/streetMapId"
         mapbox:accessToken="@string/testAccessToken"/>
 
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/randomLocationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/random"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        />
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/findMyLocationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/random"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/randomLocationButton" />
+
+
 </RelativeLayout>
