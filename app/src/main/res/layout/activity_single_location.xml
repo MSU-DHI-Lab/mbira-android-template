@@ -11,8 +11,11 @@
         android:layout_height="wrap_content">
 
         <include
-            android:id="@+id/app_bar_transparent"
-            layout="@layout/app_bar_transparent" />
+            android:id="@+id/app_bar"
+            layout="@layout/app_bar_translucent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            />
 
 
         <ImageView

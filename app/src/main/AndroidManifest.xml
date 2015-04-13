@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.bielicki.brandon.mbira" >
+    package="com.bielicki.brandon.mbira">
 
     <uses-sdk
         android:minSdkVersion="3"
-        android:targetSdkVersion="4"
-        />
+        android:targetSdkVersion="4" />
 
     <!-- Include following permission if you load images from Internet -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -25,11 +24,11 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".LoadingActivity"
             android:label="@string/app_name"
-            android:noHistory="true" >
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -65,20 +64,16 @@
             android:label="@string/title_activtiy_single_location" />
         <activity
             android:name=".ExhibitMapActivity"
-            android:label="@string/title_activity_exhibit_map" >
-        </activity>
+            android:label="@string/title_activity_exhibit_map"></activity>
         <activity
             android:name=".ExplorationMapActivity"
-            android:label="@string/title_activity_exploration_map" >
-        </activity>
+            android:label="@string/title_activity_exploration_map"></activity>
         <activity
             android:name=".SignInActivity"
-            android:label="@string/title_activity_sign_in" >
-        </activity>
+            android:label="@string/title_activity_sign_in"></activity>
         <activity
             android:name=".NewUserForm"
-            android:label="@string/title_activity_new_user_form" >
-        </activity>
+            android:label="@string/title_activity_new_user_form"></activity>
     </application>
 
 </manifest>

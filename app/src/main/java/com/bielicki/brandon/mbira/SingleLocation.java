@@ -4,6 +4,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -61,10 +62,12 @@ public class SingleLocation extends ActionBarActivity {
 
         }
 
-
-        toolbar = (Toolbar) findViewById(R.id.app_bar_transparent);
+        // Toobar Creation
+        toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setTitle("YOLO");
+
 
         ImageView locationImage = (ImageView) findViewById(R.id.singleLocationImageView);
         TextView titleTextView = (TextView) findViewById(R.id.singleLocationTitleTextView);
@@ -109,6 +112,12 @@ public class SingleLocation extends ActionBarActivity {
             return true;
         }
 
+        else if (id == android.R.id.home) {
+            //NavUtils.navigateUpFromSameTask(this);
+            this.onBackPressed();
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -124,7 +133,7 @@ public class SingleLocation extends ActionBarActivity {
         @Override
         public Fragment getItem(int position) {
             if (position == 2){
-                return MediaFragment.newInstance(5);
+                return MediaFragment.newInstance(5, isLocation, id);
             }
             else {
                 return MyFragment.getInstance(position);
