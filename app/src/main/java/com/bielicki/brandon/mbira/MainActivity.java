@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.Random;
+
 
 public class MainActivity extends ActionBarActivity {
     private TextView projectDescription;
@@ -22,14 +24,14 @@ public class MainActivity extends ActionBarActivity {
     private DrawerLayout mDrawerLayout;
     private LinearLayout mLeftDrawer;
     private Toolbar toolbar;
-    //private AppData project;
+    private AppData project;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        AppData project = AppData.get();
+        project = AppData.get();
         project.isSet = true;
 
         toolbar = (Toolbar) findViewById(R.id.app_bar_transparent);
@@ -84,9 +86,41 @@ public class MainActivity extends ActionBarActivity {
         startActivity(startPlaces);
     }
     public void random(View view) {
-        Intent startRandom = new Intent(this, SignInActivity.class);
-        startActivity(startRandom);
+//        Intent startRandom = new Intent(this, RandomActivity.class);
+//        startActivity(startRandom);
+
+        Random r = new Random();
+        Integer min = 0;
+        Integer max = 1;
+        Integer i = r.nextInt(max - min + 1) + min;
+
+        // Location Chosen
+        if (i.equals(1)) {
+            max = project.getLocationArrayList().size() - 1;
+            i = r.nextInt(max - min + 1) + min;
+            Intent intent = new Intent(this, SingleLocation.class);
+            Bundle bundle = new Bundle();
+            bundle.putDouble("Latitude", project.getLocationArrayList().get(i).latitude);
+            bundle.putDouble("Longitude", project.getLocationArrayList().get(i).longitude);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
+
+        //Area Chosen
+        else {
+            max = project.getAreaArrayList().size() - 1;
+            i = r.nextInt(max - min + 1) + min;
+            Intent intent = new Intent(this, SingleLocation.class);
+            Bundle bundle = new Bundle();
+            bundle.putDouble("Latitude", project.getAreaArrayList().get(i).coordinates.get(0).getX());
+            bundle.putDouble("Longitude", project.getAreaArrayList().get(i).coordinates.get(0).getY());
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
+
     }
+
+
     public void learnMore(View view) {
         Intent startLearnMore = new Intent(this, LearnMoreActivity.class);
         startActivity(startLearnMore);
