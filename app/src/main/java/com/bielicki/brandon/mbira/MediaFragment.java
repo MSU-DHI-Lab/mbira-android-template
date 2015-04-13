@@ -69,25 +69,18 @@ public class MediaFragment extends Fragment {
             if (isLocation)
             {
                 String title = project.getLocationArrayList().get(id).name;
-//                Bitmap img = project.getLocationArrayList().get(id).exhibitImage;
 
                 for (Bitmap media : project.getLocationArrayList().get(id).media){
-                    items.add(new Item(title, media));
+                    items.add(new Item(media));
                 }
             }
 
             else {
                 String title = project.getAreaArrayList().get(id).name;
-//                Bitmap img = project.getAreaArrayList().get(id).exhibitImage;
                 for (Bitmap media : project.getAreaArrayList().get(id).media){
-                    items.add(new Item(title, media));
+                    items.add(new Item(media));
                 }
             }
-
-//            // Place Holder Images.
-//            items.add(new Item("Image 1", R.drawable.placeholder));
-//            items.add(new Item("Image 2", R.drawable.placeholder));
-
         }
 
         @Override
@@ -125,7 +118,7 @@ public class MediaFragment extends Fragment {
             Item item = (Item)getItem(position);
 
             picture.setImageBitmap(item.drawable);
-            name.setText(item.name);
+//            name.setText(item.name);
 
             //Hiding the TextView in the gridview_item layout
             name.setVisibility(View.GONE);
@@ -134,15 +127,11 @@ public class MediaFragment extends Fragment {
         }
 
         private class Item {
-//            final int pos;
             final int item_id;
-            final String name;
             final Bitmap drawable;
 
-            Item(String name, Bitmap drawable) {
-//                this.pos = pos;
+            Item(Bitmap drawable) {
                 this.item_id = id;
-                this.name = name;
                 this.drawable = drawable;
             }
         }
