@@ -30,7 +30,6 @@ public class MediaFragment extends Fragment {
     static boolean isLocation = false;
     static int id = 0;
 
-
     private int mPage;
 
     public static MediaFragment newInstance(int page, boolean loc, int proj_id) {
