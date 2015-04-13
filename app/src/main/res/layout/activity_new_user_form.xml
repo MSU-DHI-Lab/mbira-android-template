@@ -22,7 +22,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/fullNameText"
+        android:id="@+id/firstNameText"
         android:layout_marginLeft="25dp"
         android:textColor="#ffffffff"
         android:textColorHint="#FFFFFF"
@@ -30,7 +30,20 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_below="@+id/userNameText"
-        android:hint="@string/fullName" />
+        android:hint="@string/first_name" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lastNameText"
+        android:layout_marginLeft="25dp"
+        android:textColor="#ffffffff"
+        android:textColorHint="#FFFFFF"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/firstNameText"
+        android:hint="@string/last_name" />
 
     <EditText
         android:layout_width="match_parent"
@@ -42,13 +55,13 @@
         android:textColorHint="#FFFFFF"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:layout_below="@+id/fullNameText"
+        android:layout_below="@+id/lastNameText"
         android:hint="@string/email" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/paswordOneText"
+        android:id="@+id/passwordOneText"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:textColor="#ffffffff"
@@ -69,7 +82,7 @@
         android:layout_marginRight="25dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:layout_below="@+id/paswordOneText"
+        android:layout_below="@+id/passwordOneText"
         android:hint="@string/repeatPassword"
         android:password="true" />
 

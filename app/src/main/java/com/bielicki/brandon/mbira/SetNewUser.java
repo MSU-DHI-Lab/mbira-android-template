@@ -1,6 +1,5 @@
 package com.bielicki.brandon.mbira;
 
-import android.app.Activity;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -23,13 +22,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Brandon on 3/30/2015.
+ * Created by Brandon on 4/6/2015.
  */
-public class SetSignIn extends AsyncTask {
+public class SetNewUser extends AsyncTask {
     Constants constants;
-    private PostSignIn client;
+    private PostNewUser client;
 
-    public SetSignIn(PostSignIn client) {
+    public SetNewUser(PostNewUser client) {
         this.client = client;
     }
 
@@ -49,9 +48,13 @@ public class SetSignIn extends AsyncTask {
         while(!isCancelled()){
             try {
                 List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-                nameValuePairs.add(new BasicNameValuePair("query_type", "login"));
+                nameValuePairs.add(new BasicNameValuePair("query_type", "new_user"));
                 nameValuePairs.add(new BasicNameValuePair("username", params[0].toString()));
-                nameValuePairs.add(new BasicNameValuePair("password", sha256(params[1].toString())));
+                nameValuePairs.add(new BasicNameValuePair("firstName", params[1].toString()));
+                nameValuePairs.add(new BasicNameValuePair("lastName", params[2].toString()));
+                nameValuePairs.add(new BasicNameValuePair("email", params[3].toString()));
+                nameValuePairs.add(new BasicNameValuePair("passwordOne", sha256(params[4].toString())));
+                nameValuePairs.add(new BasicNameValuePair("passwordTwo", sha256(params[5].toString())));
                 httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
                 HttpResponse response = httpclient.execute(httppost);
@@ -67,13 +70,13 @@ public class SetSignIn extends AsyncTask {
                 text = new String(byteArrayBuffer.toByteArray());
             }
             catch(ClientProtocolException e) {
-                Log.d("ClientProtocol","Nope"+e);
+                Log.d("ClientProtocol", "Nope" + e);
             }
             catch (IOException e) {
                 Log.d("IOException","Nope"+e);
             }
 
-            Log.d("LogInResponse", text);
+            Log.d("NewUserResponse", text);
 
             return text;
         }
@@ -83,9 +86,8 @@ public class SetSignIn extends AsyncTask {
     }
 
     @Override
-    protected void onPostExecute(Object o) {
-        super.onPostExecute(o);
-        client.postSignIn(o);
+    protected void onPostExecute(Object text) {
+        client.postNewUser(text);
     }
 
     public String sha256(String s) {
@@ -107,7 +109,7 @@ public class SetSignIn extends AsyncTask {
         return "";
     }
 
-    public interface PostSignIn {
-        void postSignIn(Object text);
+    public interface PostNewUser {
+        void postNewUser(Object text);
     }
 }

@@ -17,6 +17,8 @@ import com.mapbox.mapboxsdk.views.MapView;
 import com.mapbox.mapboxsdk.views.MapViewListener;
 import com.mapbox.mapboxsdk.views.util.TilesLoadedListener;
 
+import java.util.ArrayList;
+
 
 public class ExhibitMapActivity extends ActionBarActivity {
 

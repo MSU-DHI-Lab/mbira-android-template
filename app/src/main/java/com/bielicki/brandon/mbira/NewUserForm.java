@@ -1,12 +1,24 @@
 package com.bielicki.brandon.mbira;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
-public class NewUserForm extends ActionBarActivity {
+public class NewUserForm extends ActionBarActivity implements SetNewUser.PostNewUser {
+    private EditText username;
+    private EditText firstName;
+    private EditText lastName;
+    private EditText email;
+    private EditText passwordOne;
+    private EditText passwordTwo;
+    SetNewUser newUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,5 +47,34 @@ public class NewUserForm extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void sendNewUser(View view) {
+        username = (EditText) findViewById(R.id.userNameText);
+        firstName = (EditText) findViewById(R.id.firstNameText);
+        lastName = (EditText) findViewById(R.id.lastNameText);
+        email = (EditText) findViewById(R.id.emailText);
+        passwordOne = (EditText) findViewById(R.id.passwordOneText);
+        passwordTwo = (EditText) findViewById(R.id.passwordTwoText);
+
+        newUser = new SetNewUser(this);
+        newUser.execute(username.getText().toString(), firstName.getText().toString(),lastName.getText().toString(), email.getText().toString(), passwordOne.getText().toString(), passwordTwo.getText().toString());
+
+    }
+
+    public void postNewUser(Object text) {
+        Log.d("RETURN-TEXT", text.toString());
+        String result = text.toString();
+        if(result.equals("true")) {
+
+            Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
+
+            Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(getApplicationContext(), text.toString(), Toast.LENGTH_LONG).show();
+
+        }
     }
 }

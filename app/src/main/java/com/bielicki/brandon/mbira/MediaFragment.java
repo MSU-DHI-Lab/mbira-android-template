@@ -27,14 +27,19 @@ import java.util.List;
 public class MediaFragment extends Fragment {
     public static final String ARG_PAGE = "ARG_PAGE";
     AppData project = AppData.get();
+    static boolean isLocation = false;
+    static int id = 0;
+
 
     private int mPage;
 
-    public static MediaFragment newInstance(int page) {
+    public static MediaFragment newInstance(int page, boolean loc, int proj_id) {
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
         MediaFragment fragment = new MediaFragment();
         fragment.setArguments(args);
+        isLocation = loc;
+        id = proj_id;
         return fragment;
     }
 
@@ -61,16 +66,27 @@ public class MediaFragment extends Fragment {
         public ImageAdapter(Context context) {
             inflater = LayoutInflater.from(context);
 
-            /*for(int x = 0; x < project.getExplorationArrayList().get; x++) {
-                String title = project.getExhibitArrayList().get(x).name;
-                Bitmap img = project.getExhibitArrayList().get(x).exhibitImage;
-                int id = project.getExhibitArrayList().get(x).id;
-                items.add(new Item(x,id,title,img));
-            }*/
+            if (isLocation)
+            {
+                String title = project.getLocationArrayList().get(id).name;
+//                Bitmap img = project.getLocationArrayList().get(id).exhibitImage;
 
-            // Place Holder Images.
-            items.add(new Item("Image 1", R.drawable.placeholder));
-            items.add(new Item("Image 2", R.drawable.placeholder));
+                for (Bitmap media : project.getLocationArrayList().get(id).media){
+                    items.add(new Item(title, media));
+                }
+            }
+
+            else {
+                String title = project.getAreaArrayList().get(id).name;
+//                Bitmap img = project.getAreaArrayList().get(id).exhibitImage;
+                for (Bitmap media : project.getAreaArrayList().get(id).media){
+                    items.add(new Item(title, media));
+                }
+            }
+
+//            // Place Holder Images.
+//            items.add(new Item("Image 1", R.drawable.placeholder));
+//            items.add(new Item("Image 2", R.drawable.placeholder));
 
         }
 
@@ -86,7 +102,7 @@ public class MediaFragment extends Fragment {
 
         @Override
         public long getItemId(int position) {
-            return items.get(position).drawable;
+            return items.get(position).item_id;
         }
 
         @Override
@@ -108,22 +124,24 @@ public class MediaFragment extends Fragment {
 
             Item item = (Item)getItem(position);
 
-            picture.setImageResource(item.drawable);
+            picture.setImageBitmap(item.drawable);
             name.setText(item.name);
 
+            //Hiding the TextView in the gridview_item layout
+            name.setVisibility(View.GONE);
 
             return v;
         }
 
         private class Item {
 //            final int pos;
-//            final int id;
+            final int item_id;
             final String name;
-            final int drawable;
+            final Bitmap drawable;
 
-            Item(String name, int drawable) {
+            Item(String name, Bitmap drawable) {
 //                this.pos = pos;
-//                this.id = id;
+                this.item_id = id;
                 this.name = name;
                 this.drawable = drawable;
             }

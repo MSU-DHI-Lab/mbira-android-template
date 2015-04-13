@@ -82,6 +82,7 @@ public class PlacesActivity extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("All Places");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Floating Action Button
 
@@ -129,7 +130,7 @@ public class PlacesActivity extends ActionBarActivity {
 
         // Show user location
         mv.setUserLocationEnabled(true);
-        mv.setUserLocationTrackingMode(UserLocationOverlay.TrackingMode.FOLLOW);
+        mv.setUserLocationTrackingMode(UserLocationOverlay.TrackingMode.FOLLOW_BEARING);
 
         mv.loadFromGeoJSONURL("http://dev2.matrix.msu.edu/kora/plugins/mbira_plugin/json/map_area_data.geojson");
 
@@ -235,6 +236,13 @@ public class PlacesActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            this.onBackPressed();
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
