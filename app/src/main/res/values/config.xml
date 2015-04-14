@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="webservice">http://dev2.matrix.msu.edu/mbira-android/webService.php</string>
+    <string name="base_path">http://dev2.matrix.msu.edu/mbira-android/kora/plugins/mbira_plugin/</string>
+    <string name="project_id">31</string>
+</resources>

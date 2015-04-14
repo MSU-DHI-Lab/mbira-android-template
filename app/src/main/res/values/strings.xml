@@ -55,5 +55,6 @@
     <string name="repeatPassword">Repeat Password</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
+    <string name="preference_file_key">mbira_data</string>
 
 </resources>

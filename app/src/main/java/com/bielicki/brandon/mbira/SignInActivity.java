@@ -1,8 +1,10 @@
 package com.bielicki.brandon.mbira;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -23,6 +25,7 @@ public class SignInActivity extends ActionBarActivity implements SetSignIn.PostS
     private EditText user;
     private EditText password;
     private ProgressDialog dialog;
+    AppData project;
     SetSignIn signIn;
 
 
@@ -32,7 +35,7 @@ public class SignInActivity extends ActionBarActivity implements SetSignIn.PostS
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-
+        project = AppData.get();
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(R.string.expert_sign_in);
@@ -95,9 +98,19 @@ public class SignInActivity extends ActionBarActivity implements SetSignIn.PostS
         dialog.dismiss();
         String result = text.toString();
         if(result.equals("true")) {
-            //store into shared preference
-            Log.d("USERNAME", user.getText().toString());
-            Log.d("PASSWORD", sha256(password.getText().toString()));
+
+            SharedPreferences sharedPref = getSharedPreferences(
+                    getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putString("USERNAME", user.getText().toString());
+            editor.putString("PASSWORD", password.getText().toString());
+            editor.commit();
+            project.username = user.getText().toString();
+            project.password = password.getText().toString();
+
+            //Log.d("USERNAME", user.getText().toString());
+            //Log.d("PASSWORD", sha256(password.getText().toString()));
 
 
             Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
