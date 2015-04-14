@@ -53,6 +53,7 @@ import org.json.JSONObject;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class PlacesActivity extends ActionBarActivity {
@@ -244,6 +245,47 @@ public class PlacesActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+
+    public void random(View view) {
+//        Intent startRandom = new Intent(this, RandomActivity.class);
+//        startActivity(startRandom);
+
+        Log.i("Random in :", "Places");
+
+        Random r = new Random();
+        Integer min = 0;
+        Integer max = 1;
+        Integer i = r.nextInt(max - min + 1) + min;
+
+        // Location Chosen
+        if (i.equals(1)) {
+            max = project.getLocationArrayList().size() - 1;
+            i = r.nextInt(max - min + 1) + min;
+            Intent intent = new Intent(this, SingleLocation.class);
+            Bundle bundle = new Bundle();
+            bundle.putDouble("Latitude", project.getLocationArrayList().get(i).latitude);
+            bundle.putDouble("Longitude", project.getLocationArrayList().get(i).longitude);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
+
+        //Area Chosen
+        else {
+            max = project.getAreaArrayList().size() - 1;
+            i = r.nextInt(max - min + 1) + min;
+            Intent intent = new Intent(this, SingleLocation.class);
+            Bundle bundle = new Bundle();
+            bundle.putDouble("Latitude", project.getAreaArrayList().get(i).coordinates.get(0).getX());
+            bundle.putDouble("Longitude", project.getAreaArrayList().get(i).coordinates.get(0).getY());
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
+
+        Toast.makeText(getApplicationContext(), "RANDOM GO", Toast.LENGTH_LONG).show();
+
     }
 
 }

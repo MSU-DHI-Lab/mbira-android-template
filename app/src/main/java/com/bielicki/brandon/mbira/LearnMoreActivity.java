@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 
 public class LearnMoreActivity extends ActionBarActivity {
 
@@ -34,7 +36,7 @@ public class LearnMoreActivity extends ActionBarActivity {
 
         project_description.setMovementMethod(new ScrollingMovementMethod());
         projectImage = (ImageView) findViewById(R.id.explorationImageView);
-        projectImage.setImageBitmap(project.getProjectImage());
+        ImageLoader.getInstance().displayImage(project.getProjectImageUrl(), projectImage);
 
     }
 

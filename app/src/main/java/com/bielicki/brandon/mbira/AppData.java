@@ -6,15 +6,20 @@ package com.bielicki.brandon.mbira;
  * Created by Brandon on 2/25/2015.
  */
 
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.util.LruCache;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class AppData {
     public boolean isSet = false;
     private static final AppData AppData = new AppData();
-
+    public String username;
+    public String password;
+    public File httpCacheDir;
+    public long httpCacheSize;
     private AppData() {
 
     }
@@ -24,16 +29,16 @@ public class AppData {
     }
 
     //PROJECT RELATED DATA
-    private Bitmap projectImage;
+    private String projectImageUrl;
     private String projectDescription;
     private String projectName;
 
-    public Bitmap getProjectImage() {
-        return projectImage;
+    public String getProjectImageUrl() {
+        return projectImageUrl;
     }
 
-    public void setProjectImage(Bitmap projectImage) {
-        this.projectImage = projectImage;
+    public void setProjectImageUrl(String projectImageUrl) {
+        this.projectImageUrl = projectImageUrl;
     }
 
     public String getProjectDescription() {

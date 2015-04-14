@@ -21,8 +21,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,9 +45,53 @@ public class SetProjectData extends AsyncTask<LoadingActivity,Void,AppData> {
         constants = Constants.get();
         loading = x[0];
         project = AppData.get();
-        HttpClient httpclient = new DefaultHttpClient();
-        HttpPost httppost = new HttpPost(constants.WEBSERVICE);
         String text = "";
+
+
+
+        URL url;
+        HttpURLConnection conn = null;
+        try {
+            url = new URL(constants.WEBSERVICE);
+
+            conn = (HttpURLConnection)url.openConnection();
+            //conn.addRequestProperty("Cache-Control", "only-if-cached");
+            conn.setUseCaches(true);
+            conn.setRequestMethod("POST");
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
+
+            String urlParameters = "query_type=project&projectID=" + constants.PROJECT_ID;
+
+            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
+            nameValuePairs.add(new BasicNameValuePair("query_type", "project"));
+            nameValuePairs.add(new BasicNameValuePair("projectID", constants.PROJECT_ID));
+
+            DataOutputStream out = new DataOutputStream(conn.getOutputStream());
+            out.writeBytes(urlParameters);
+            out.flush();
+            out.close();
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            String inputLine;
+            StringBuffer response = new StringBuffer();
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+
+            text = response.toString();
+            Log.d("HTTPRESPONSE",response.toString());
+        } catch(MalformedURLException e) {
+
+        } catch(IOException e) {
+
+        }
+
+        /*HttpClient httpclient = new DefaultHttpClient();
+        HttpPost httppost = new HttpPost(constants.WEBSERVICE);
+
 
         try { //Try to make connection and return string value
             List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
@@ -63,7 +115,7 @@ public class SetProjectData extends AsyncTask<LoadingActivity,Void,AppData> {
             Log.d("ClientProtocol","Nope"+e);
         } catch (IOException e) {
             Log.d("IOException","Nope"+e);
-        }
+        }*/
 
         String fileName = "";
         try {
@@ -80,8 +132,8 @@ public class SetProjectData extends AsyncTask<LoadingActivity,Void,AppData> {
             }
             try {
                 fileName = projectInfo.getString("image_path");
-                Bitmap img = ImageLoader.getInstance().loadImageSync(constants.BASE_PATH + "/images/" + fileName);
-                project.setProjectImage(img);
+                //Bitmap img = ImageLoader.getInstance().loadImageSync(constants.BASE_PATH + "/images/" + fileName);
+                project.setProjectImageUrl(constants.BASE_PATH + "/images/" + fileName);
             } catch (JSONException e) {
                 //no project image due to JSON failure
             }

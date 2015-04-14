@@ -1,5 +1,7 @@
 package com.bielicki.brandon.mbira;
 
+import android.content.Context;
+
 /**
  * Created by Brandon on 2/25/2015.
  */
@@ -13,9 +15,7 @@ public class Constants {
         return constants;
     }
 
-    private Constants() {
-        WEBSERVICE = "http://dev2.matrix.msu.edu/mbira-android/webService.php";
-        PROJECT_ID = "31";
-        BASE_PATH = "http://dev2.matrix.msu.edu/mbira-android/kora/plugins/mbira_plugin/";
+    public Constants() {
+
     }
 }

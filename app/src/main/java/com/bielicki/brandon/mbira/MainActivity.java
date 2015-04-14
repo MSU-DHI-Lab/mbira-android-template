@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.Random;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -43,7 +44,8 @@ public class MainActivity extends ActionBarActivity {
         projectImageView = (ImageView) findViewById(R.id.projectImageView);
         projectDescription = (TextView) findViewById(R.id.projectDescription);
 
-        projectImageView.setImageBitmap(project.getProjectImage());
+        //projectImageView.setImageBitmap(project.getProjectImage());
+        ImageLoader.getInstance().displayImage(project.getProjectImageUrl(),projectImageView);
         projectDescription.setText(project.getProjectDescription());
         projectTitle.setText(project.getProjectName());
 
