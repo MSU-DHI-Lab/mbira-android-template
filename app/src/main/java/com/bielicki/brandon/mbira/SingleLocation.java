@@ -66,7 +66,6 @@ public class SingleLocation extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setTitle("YOLO");
 
 
         ImageView locationImage = (ImageView) findViewById(R.id.singleLocationImageView);
