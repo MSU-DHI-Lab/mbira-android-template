@@ -40,6 +40,13 @@
         <item>Conversations</item>
     </string-array>
 
+    <string-array name="exploration_tabs_title">
+        <item>About</item>
+        <item>Stops</item>
+        <item>Media</item>
+        <item>Conversations</item>
+    </string-array>
+
     <string name="title_activity_exhibit_map">ExhibitMapActivity</string>
     <string name="title_activity_exploration_map">ExplorationMapActivity</string>
     <string name="title_activity_sign_in">SignInActivity</string>

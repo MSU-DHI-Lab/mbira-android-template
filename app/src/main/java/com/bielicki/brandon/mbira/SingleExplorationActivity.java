@@ -3,6 +3,11 @@ package com.bielicki.brandon.mbira;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -26,7 +31,13 @@ public class SingleExplorationActivity extends ActionBarActivity {
     private Toolbar toolbar;
     AppData project = AppData.get();
     private NonScrollListView stopsList;
+    public static Exploration exploration;
     int pos, explorationId;
+    private static int id = 0;
+
+
+    private ViewPager mPager;
+    private SlidingTabLayout mTabs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,21 +47,26 @@ public class SingleExplorationActivity extends ActionBarActivity {
         Intent intent = getIntent();
         pos = intent.getIntExtra("pos",0);
         explorationId = intent.getIntExtra("explorationId", 0);
-        Exploration exploration = project.getExplorationArrayList().get(pos);
+        exploration = project.getExplorationArrayList().get(pos);
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(exploration.name);
 
-        TextView exploration_description = (TextView) findViewById(R.id.explorationDescription);
-        exploration_description.setMovementMethod(new ScrollingMovementMethod());
-        exploration_description.setText(exploration.description);
+        ImageView locationImage = (ImageView) findViewById(R.id.singleExplorationImageView);
+        TextView titleTextView = (TextView) findViewById(R.id.singleExplorationTitleTextView);
 
-        TextView explorationTitle = (TextView) findViewById(R.id.explorationTitle);
-        explorationTitle.setText(exploration.name);
+        locationImage.setImageBitmap(exploration.explorationImage);
+        titleTextView.setText(exploration.name);
 
-        ImageView explorationImage = (ImageView) findViewById(R.id.explorationImageView);
-        explorationImage.setImageBitmap(exploration.explorationImage);
+
+//        ImageView explorationImage = (ImageView) findViewById(R.id.explorationImageView);
+//        explorationImage.setImageBitmap(exploration.explorationImage);
+
+        mPager = (ViewPager) findViewById(R.id.locationPager);
+        mPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+        mTabs = (SlidingTabLayout) findViewById(R.id.locationsTab);
+        mTabs.setViewPager(mPager);
     }
 
     @Override
@@ -80,5 +96,92 @@ public class SingleExplorationActivity extends ActionBarActivity {
         startExplorationMap.putExtra("explorationId", explorationId);
         startExplorationMap.putExtra("pos", pos);
         startActivity(startExplorationMap);
+    }
+
+    class MyPagerAdapter extends FragmentPagerAdapter {
+
+        String[] locationTabsTitle;
+
+        public MyPagerAdapter(FragmentManager fm) {
+            super(fm);
+            locationTabsTitle = getResources().getStringArray(R.array.exploration_tabs_title);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            if (position == 2){
+                return MediaExplorationFragment.newInstance(5, pos);
+            }
+            else {
+                return MyFragment.getInstance(position);
+            }
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return locationTabsTitle[position];
+        }
+
+        @Override
+        public int getCount() {
+            return 4;
+        }
+    }
+
+    public static class MyFragment extends Fragment {
+        private TextView textView;
+
+        public static MyFragment getInstance(int position) {
+            MyFragment myFragment = new MyFragment();
+            Bundle args = new Bundle();
+            args.putInt("Position", position);
+            myFragment.setArguments(args);
+            return myFragment;
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+            View layout = inflater.inflate(R.layout.slidetab_text, container, false);
+            textView = (TextView) layout.findViewById(R.id.position);
+
+
+            Bundle bundle = getArguments();
+            textView.setMovementMethod(new ScrollingMovementMethod());
+
+            if (bundle != null){
+                if (bundle.getInt("Position") == 0) {
+                    textView = (TextView) layout.findViewById(R.id.position);
+                    textView.setText(exploration.description);
+                }
+                else if (bundle.getInt("Position") == 1) {
+                    textView = (TextView) layout.findViewById(R.id.position);
+                    String stopsText = "";
+
+                    //Looping throught the exploration List
+                    for(int x = 0; x < exploration.getMapItemArrayList().size(); x++) {
+
+                        // Checking if the MapItem is of instance type Area
+                        if (exploration.getMapItemArrayList().get(x) instanceof Area)
+                        {
+                            stopsText += Integer.toString(x+1) + ". " + ((Area)exploration.getMapItemArrayList().get(x)).name + "\n";
+                        }
+
+                        // Checking if the MapItem is of instance type Location
+                        else if (exploration.getMapItemArrayList().get(x) instanceof Location)
+                        {
+                            stopsText += Integer.toString(x+1) + ". " + ((Location)exploration.getMapItemArrayList().get(x)).name + "\n";
+                        }
+
+                    }
+
+                    textView.setText(stopsText);
+                }
+
+                else{
+                    textView.setText("Comments will be placed here.");
+                }
+            }
+            return layout;
+        }
     }
 }
