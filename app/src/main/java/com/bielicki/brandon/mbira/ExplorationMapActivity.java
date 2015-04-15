@@ -2,14 +2,17 @@ package com.bielicki.brandon.mbira;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.webkit.WebView;
 
+import com.github.clans.fab.FloatingActionButton;
 import com.mapbox.mapboxsdk.api.ILatLng;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.overlay.Icon;
@@ -19,6 +22,8 @@ import com.mapbox.mapboxsdk.overlay.UserLocationOverlay;
 import com.mapbox.mapboxsdk.views.MapView;
 import com.mapbox.mapboxsdk.views.MapViewListener;
 import com.mapbox.mapboxsdk.views.util.TilesLoadedListener;
+
+import java.util.Random;
 
 
 public class ExplorationMapActivity extends ActionBarActivity {
@@ -39,7 +44,7 @@ public class ExplorationMapActivity extends ActionBarActivity {
         Intent intent = getIntent();
         int explorationId = intent.getIntExtra("explorationId", 0);
         int pos = intent.getIntExtra("pos",0);
-        Exploration exploration = project.getExplorationArrayList().get(pos);
+        final Exploration exploration = project.getExplorationArrayList().get(pos);
 
         mv = (MapView) findViewById(R.id.mapview);
         mv.setMinZoomLevel(mv.getTileProvider().getMinimumZoomLevel());
@@ -136,6 +141,65 @@ public class ExplorationMapActivity extends ActionBarActivity {
             }
             mv.getOverlays().add(line);
         }
+
+        // Floating Action Button
+
+        final FloatingActionButton randomLocationButton = (FloatingActionButton) findViewById(R.id.randomLocationButton);
+        final FloatingActionButton findMyLocationButton = (FloatingActionButton) findViewById(R.id.findMyLocationButton);
+
+        findMyLocationButton.hide(false);
+        randomLocationButton.hide(false);
+
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                findMyLocationButton.show(true);
+                randomLocationButton.show(true);
+                findMyLocationButton.setShowAnimation(AnimationUtils.loadAnimation(ExplorationMapActivity.this, R.anim.show_from_buttom));
+                findMyLocationButton.setHideAnimation(AnimationUtils.loadAnimation(ExplorationMapActivity.this, R.anim.hide_to_buttom));
+                randomLocationButton.setShowAnimation(AnimationUtils.loadAnimation(ExplorationMapActivity.this, R.anim.show_from_buttom));
+                randomLocationButton.setHideAnimation(AnimationUtils.loadAnimation(ExplorationMapActivity.this, R.anim.hide_to_buttom));
+            }
+        }, 300);
+
+        randomLocationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Random r = new Random();
+                Integer min = 0;
+                Integer max = exploration.getMapItemArrayList().size() - 1;
+                Integer i = r.nextInt(max - min + 1) + min;
+
+                if (!max.equals(-1)) {
+                    Intent intent = new Intent(ExplorationMapActivity.this, SingleLocation.class);
+                    Bundle bundle = new Bundle();
+
+                    // Checking if the MapItem is of instance type Area
+                    if (exploration.getMapItemArrayList().get(i) instanceof Area) {
+                        bundle.putDouble("Latitude", ((Area) exploration.getMapItemArrayList().get(i)).coordinates.get(0).getX());
+                        bundle.putDouble("Longitude", ((Area) exploration.getMapItemArrayList().get(i)).coordinates.get(0).getY());
+                    }
+
+                    // Checking if the MapItem is of instance type Location
+                    else if (exploration.getMapItemArrayList().get(i) instanceof Location) {
+                        bundle.putDouble("Latitude", ((Location) exploration.getMapItemArrayList().get(i)).latitude);
+                        bundle.putDouble("Longitude", ((Location) exploration.getMapItemArrayList().get(i)).longitude);
+                    }
+
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                }
+
+            }
+        });
+
+        findMyLocationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
 
 

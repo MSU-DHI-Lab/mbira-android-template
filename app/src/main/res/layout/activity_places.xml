@@ -29,8 +29,7 @@
         android:layout_marginRight="8dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="random" />
+        android:layout_alignParentEnd="true"/>
 
     <com.github.clans.fab.FloatingActionButton
         android:id="@+id/findMyLocationButton"
