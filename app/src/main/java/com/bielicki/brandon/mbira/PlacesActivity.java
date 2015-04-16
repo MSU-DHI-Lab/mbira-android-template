@@ -160,7 +160,7 @@ public class PlacesActivity extends ActionBarActivity {
         mv.setUserLocationEnabled(true);
         mv.setUserLocationTrackingMode(UserLocationOverlay.TrackingMode.FOLLOW_BEARING);
 
-        mv.loadFromGeoJSONURL("http://dev2.matrix.msu.edu/kora/plugins/mbira_plugin/json/map_area_data.geojson");
+        //mv.loadFromGeoJSONURL("http://dev2.matrix.msu.edu/kora/plugins/mbira_plugin/json/map_area_data.geojson");
 
         Marker m;
 
@@ -252,6 +252,7 @@ public class PlacesActivity extends ActionBarActivity {
         };
 
         mv.setMapViewListener(mapViewListener);
+
     }
 
     @Override

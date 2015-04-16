@@ -3,6 +3,7 @@ package com.bielicki.brandon.mbira;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -17,10 +18,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.github.clans.fab.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,6 +62,29 @@ public class SingleExplorationActivity extends ActionBarActivity {
 
         locationImage.setImageBitmap(exploration.explorationImage);
         titleTextView.setText(exploration.name);
+
+        final FloatingActionButton goToMapButton = (FloatingActionButton) findViewById(R.id.goToMapButton);
+        goToMapButton.hide(false);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                goToMapButton.show(true);
+                goToMapButton.setShowAnimation(AnimationUtils.loadAnimation(SingleExplorationActivity.this, R.anim.show_from_buttom));
+                goToMapButton.setHideAnimation(AnimationUtils.loadAnimation(SingleExplorationActivity.this, R.anim.hide_to_buttom));
+            }
+        }, 300);
+
+        goToMapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startExplorationMap = new Intent(SingleExplorationActivity.this, ExplorationMapActivity.class);
+                startExplorationMap.putExtra("explorationId", explorationId);
+                startExplorationMap.putExtra("pos", pos);
+                startActivity(startExplorationMap);
+            }
+        });
+
 
 
 //        ImageView explorationImage = (ImageView) findViewById(R.id.explorationImageView);

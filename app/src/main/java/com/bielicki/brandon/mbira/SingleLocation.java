@@ -87,6 +87,7 @@ public class SingleLocation extends ActionBarActivity {
         mPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
         mTabs = (SlidingTabLayout) findViewById(R.id.locationsTab);
         mTabs.setViewPager(mPager);
+
     }
 
 
