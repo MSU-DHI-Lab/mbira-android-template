@@ -29,5 +29,5 @@ proguard/
 #SVN
 *.svn
 
-#WebService file
-/webService.php
+#SVN Folder
+.svn/
