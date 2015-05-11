@@ -119,7 +119,6 @@ public class MainActivity extends ActionBarActivity {
             intent.putExtras(bundle);
             startActivity(intent);
         }
-
     }
 
 
