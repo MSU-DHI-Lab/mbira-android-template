@@ -28,7 +28,8 @@
         <activity
             android:name=".LoadingActivity"
             android:label="@string/app_name"
-            android:noHistory="true">
+            android:noHistory="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,43 +38,56 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ExhibitsActivity"
-            android:label="@string/title_activity_exhibits" />
+            android:label="@string/title_activity_exhibits"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ExplorationsActivity"
-            android:label="@string/title_activity_explorations" />
+            android:label="@string/title_activity_explorations"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".PlacesActivity"
-            android:label="@string/title_activity_places" />
+            android:label="@string/title_activity_places"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RandomActivity"
-            android:label="@string/title_activity_random" />
+            android:label="@string/title_activity_random"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LearnMoreActivity"
-            android:label="@string/title_activity_learn_more" />
+            android:label="@string/title_activity_learn_more"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SingleExhibitActivity"
-            android:label="@string/title_activity_single_exhibit" />
+            android:label="@string/title_activity_single_exhibit"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SingleExplorationActivity"
-            android:label="@string/title_activity_single_exploration" />
+            android:label="@string/title_activity_single_exploration"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SingleLocation"
-            android:label="@string/title_activtiy_single_location" />
+            android:label="@string/title_activtiy_single_location"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ExhibitMapActivity"
-            android:label="@string/title_activity_exhibit_map"></activity>
+            android:label="@string/title_activity_exhibit_map"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ExplorationMapActivity"
-            android:label="@string/title_activity_exploration_map"></activity>
+            android:label="@string/title_activity_exploration_map"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".SignInActivity"
-            android:label="@string/title_activity_sign_in"></activity>
+            android:label="@string/title_activity_sign_in"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".NewUserForm"
-            android:label="@string/title_activity_new_user_form"></activity>
+            android:label="@string/title_activity_new_user_form"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
