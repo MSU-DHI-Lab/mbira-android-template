@@ -141,17 +141,7 @@ public class MainActivity extends ActionBarActivity {
         Intent startLearnMore = new Intent(this, LearnMoreActivity.class);
         startActivity(startLearnMore);
     }
-
-    public void randomLocation(View view) {
-
-    }
-
-    public void randomArea(View view){
-
-    }
-
-
-
+    
 }
 
 
