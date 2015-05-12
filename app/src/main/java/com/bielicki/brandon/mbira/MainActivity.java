@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -96,6 +97,20 @@ public class MainActivity extends ActionBarActivity {
         Integer max = 1;
         Integer i = r.nextInt(max - min + 1) + min;
 
+        if (project.getLocationArrayList().isEmpty() && project.getAreaArrayList().isEmpty()){
+            Toast.makeText(getApplicationContext(), "No Locations are present in the database",
+                    Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        else if(project.getAreaArrayList().isEmpty() && !project.getLocationArrayList().isEmpty()){
+            i = 1;
+        }
+
+        else if(project.getLocationArrayList().isEmpty() && !project.getAreaArrayList().isEmpty()){
+            i = 0;
+        }
+
         // Location Chosen
         if (i.equals(1)) {
             max = project.getLocationArrayList().size() - 1;
@@ -125,6 +140,14 @@ public class MainActivity extends ActionBarActivity {
     public void learnMore(View view) {
         Intent startLearnMore = new Intent(this, LearnMoreActivity.class);
         startActivity(startLearnMore);
+    }
+
+    public void randomLocation(View view) {
+
+    }
+
+    public void randomArea(View view){
+
     }
 
 
