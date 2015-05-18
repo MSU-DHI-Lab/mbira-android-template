@@ -2,6 +2,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.bielicki.brandon.mbira.ExhibitMapActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/search_dark"
+        android:orderInCategory="200"
+        android:title="@string/search"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/share"
+        android:icon="@drawable/share_dark"
+        android:orderInCategory="200"
+        android:title="@string/search"
+        app:showAsAction="always" />
 </menu>

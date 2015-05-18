@@ -2,6 +2,9 @@ package com.bielicki.brandon.mbira;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -39,10 +42,12 @@ public class MainActivity extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.app_bar_transparent);
         //toolbar.setTitle(project.getProjectName());
         setSupportActionBar(toolbar);
+//        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000")));
         
 
         projectTitle = (TextView) findViewById(R.id.projectTitle);
         projectImageView = (ImageView) findViewById(R.id.projectImageView);
+        //projectImageView.setColorFilter(Color.parseColor("#253137"), PorterDuff.Mode.OVERLAY);
         projectDescription = (TextView) findViewById(R.id.projectDescription);
 
         //projectImageView.setImageBitmap(project.getProjectImage());
@@ -141,7 +146,7 @@ public class MainActivity extends ActionBarActivity {
         Intent startLearnMore = new Intent(this, LearnMoreActivity.class);
         startActivity(startLearnMore);
     }
-    
+
 }
 
 

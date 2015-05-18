@@ -34,7 +34,7 @@ public class ExhibitsActivity extends ActionBarActivity {
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(project.getProjectName());
+        getSupportActionBar().setTitle("Exhibits");
 
         GridView gridView = (GridView)findViewById(R.id.gridview);
         gridView.setAdapter(new ImageAdapter(this));

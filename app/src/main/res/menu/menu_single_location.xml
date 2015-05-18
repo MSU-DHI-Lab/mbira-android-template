@@ -5,21 +5,21 @@
 
     <item
         android:id="@+id/search"
-        android:icon="@drawable/search_icon"
+        android:icon="@drawable/search_dark_icon"
         android:orderInCategory="200"
         android:title="@string/search"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/exploration_icon"
-        android:icon="@drawable/exploration_icon"
+        android:icon="@drawable/exploration_icon_dark"
         android:orderInCategory="200"
         android:title="Explore"
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/share_icon"
-        android:icon="@drawable/share_icon"
+        android:id="@+id/share"
+        android:icon="@drawable/share_dark_icon"
         android:orderInCategory="200"
         android:title="Share"
         app:showAsAction="always" />

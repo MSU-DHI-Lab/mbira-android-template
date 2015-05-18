@@ -4,7 +4,7 @@
     tools:context="com.bielicki.brandon.mbira.ExplorationsActivity">
     <item
         android:id="@+id/search"
-        android:icon="@drawable/search_icon"
+        android:icon="@drawable/searchbig"
         android:orderInCategory="200"
         android:title="@string/search"
         app:showAsAction="always" />

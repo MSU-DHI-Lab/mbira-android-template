@@ -63,5 +63,6 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="preference_file_key">mbira_data</string>
+    <string name="placeholder">PlaceHolder</string>
 
 </resources>

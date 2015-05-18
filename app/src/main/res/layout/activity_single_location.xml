@@ -10,14 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <include
-            android:id="@+id/app_bar"
-            layout="@layout/app_bar_translucent"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            />
-
-
         <ImageView
             android:id="@+id/singleLocationImageView"
             android:layout_width="match_parent"
@@ -25,6 +17,13 @@
             android:layout_centerHorizontal="true"
             android:adjustViewBounds="true"
             android:src="@drawable/beaumont" />
+
+        <include
+            android:id="@+id/app_bar"
+            layout="@layout/app_bar_transparent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            />
 
     </RelativeLayout>
 

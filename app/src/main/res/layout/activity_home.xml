@@ -61,7 +61,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="#ffffff"
-                            android:textSize="30sp" />
+                            android:textSize="30sp"
+                            android:text="@string/placeholder"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            />
 
                         <TextView
                             android:id="@+id/projectDescription"
@@ -69,7 +73,12 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/projectTitle"
                             android:textColor="#ffffffff"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:text="@string/placeholder"
+                            android:maxLength="140"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            />
                     </RelativeLayout>
                 </LinearLayout>
 

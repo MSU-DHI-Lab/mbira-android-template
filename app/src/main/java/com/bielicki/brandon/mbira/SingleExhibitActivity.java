@@ -29,9 +29,10 @@ public class SingleExhibitActivity extends ActionBarActivity {
         exhibitId = intent.getIntExtra("exhibitId", 0);
         Exhibit exhibit = project.getExhibitArrayList().get(pos);
 
-        toolbar = (Toolbar) findViewById(R.id.app_bar);
+        toolbar = (Toolbar) findViewById(R.id.app_bar_transparent);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(exhibit.name);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("");
 
         TextView exhibit_description = (TextView) findViewById(R.id.exhibitDescription);
         exhibit_description.setMovementMethod(new ScrollingMovementMethod());
@@ -49,7 +50,7 @@ public class SingleExhibitActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_single_exhibit, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -59,8 +60,8 @@ public class SingleExhibitActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == android.R.id.home) {
+            this.onBackPressed();
             return true;
         }
 

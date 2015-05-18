@@ -1,5 +1,7 @@
 package com.bielicki.brandon.mbira;
 
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -65,7 +67,11 @@ public class SingleLocation extends ActionBarActivity {
         // Toobar Creation
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+        upArrow.setColorFilter(getResources().getColor(R.color.black), PorterDuff.Mode.SRC_ATOP);
+        getSupportActionBar().setHomeAsUpIndicator(upArrow);
+        getSupportActionBar().setTitle("");
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         ImageView locationImage = (ImageView) findViewById(R.id.singleLocationImageView);

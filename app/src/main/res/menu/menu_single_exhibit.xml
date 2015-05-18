@@ -2,9 +2,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.bielicki.brandon.mbira.SingleExhibitActivity">
+
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/search"
+        android:icon="@drawable/searchbig"
+        android:orderInCategory="200"
+        android:title="@string/search"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/share"
+        android:icon="@drawable/share_icon"
+        android:orderInCategory="200"
+        android:title="@string/search"
+        app:showAsAction="always" />
+
 </menu>
