@@ -16,7 +16,15 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:adjustViewBounds="true"
-            android:src="@drawable/beaumont" />
+            android:background="@drawable/beaumont" />
+
+        <ImageView
+            android:id="@+id/imageOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/singleLocationImageView"
+            android:layout_alignBottom="@+id/singleLocationImageView"
+            android:background="#660A263D" />
 
         <include
             android:id="@+id/app_bar"
