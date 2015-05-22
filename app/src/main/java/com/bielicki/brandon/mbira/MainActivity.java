@@ -42,8 +42,7 @@ public class MainActivity extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.app_bar_transparent);
         //toolbar.setTitle(project.getProjectName());
         setSupportActionBar(toolbar);
-//        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000")));
-        
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         projectTitle = (TextView) findViewById(R.id.projectTitle);
         projectImageView = (ImageView) findViewById(R.id.projectImageView);
@@ -57,7 +56,11 @@ public class MainActivity extends ActionBarActivity {
 
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mLeftDrawer = (LinearLayout) findViewById(R.id.left_drawer);
+//        mLeftDrawer = (LinearLayout) findViewById(R.id.left_drawer);
+
+        NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
+        drawerFragment.setUp((DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
+
     }
 
     @Override

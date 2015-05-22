@@ -1,4 +1,6 @@
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -160,200 +162,20 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/main_learnmoreabout" />
 
-            <!--<RelativeLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:clickable="true"
-                android:background="#78909c"
-                android:id="@+id/exploreExhibitsButton"
-                android:layout_weight="12">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:text="@string/exploreExhibits"
-                    android:id="@+id/exploreExhibits"
-                    android:textColor="#ffffffff"
-                    android:textSize="30sp"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:text="@string/rightArrow"
-                    android:id="@+id/rightArrow"
-                    android:textColor="#ffffffff"
-                    android:textSize="40sp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentStart="false"
-                    android:gravity="center_vertical"
-                    android:paddingRight="20dp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-
-
-            <RelativeLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:clickable="true"
-                android:background="#546e7a"
-                android:id="@+id/viewExplorationsButton"
-                android:layout_weight="12">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:text="@string/viewExplorations"
-                    android:id="@+id/viewExplorations"
-                    android:textColor="#ffffffff"
-                    android:textSize="30sp"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:text="@string/rightArrow"
-                    android:id="@+id/rightArrow2"
-                    android:textColor="#ffffffff"
-                    android:textSize="40sp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentStart="false"
-                    android:gravity="center_vertical"
-                    android:paddingRight="20dp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:clickable="true"
-                android:background="#455a64"
-                android:id="@+id/viewAllButton"
-                android:layout_weight="12">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:text="@string/viewAll"
-                    android:id="@+id/viewAll"
-                    android:textColor="#ffffffff"
-                    android:textSize="30sp"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:text="@string/rightArrow"
-                    android:id="@+id/rightArrow3"
-                    android:textColor="#ffffffff"
-                    android:textSize="40sp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentStart="false"
-                    android:gravity="center_vertical"
-                    android:paddingRight="20dp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:clickable="true"
-                android:background="#37474f"
-                android:id="@+id/viewRandomButton"
-                android:layout_weight="12">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:text="@string/viewRandom"
-                    android:id="@+id/viewRandom"
-                    android:textColor="#ffffffff"
-                    android:textSize="30sp"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:text="@string/rightArrow"
-                    android:id="@+id/rightArrow4"
-                    android:textColor="#ffffffff"
-                    android:textSize="40sp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentStart="false"
-                    android:gravity="center_vertical"
-                    android:paddingRight="20dp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:clickable="true"
-                android:background="#263238"
-                android:id="@+id/learnMoreButton"
-                android:layout_weight="12">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:text="@string/learnMore"
-                    android:id="@+id/learnMore"
-                    android:textColor="#ffffffff"
-                    android:textSize="30sp"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:text="@string/rightArrow"
-                    android:id="@+id/rightArrow5"
-                    android:textColor="#ffffffff"
-                    android:textSize="40sp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentStart="false"
-                    android:gravity="center_vertical"
-                    android:paddingRight="20dp"
-                    android:textStyle="bold" />
-            </RelativeLayout>-->
-
         </RelativeLayout>
 
     </FrameLayout>
+
+
     <!-- drawer content -->
-    <LinearLayout
-        android:id="@+id/left_drawer"
+    <fragment
+        android:id="@+id/fragment_navigation_drawer"
         android:layout_width="240dp"
         android:layout_height="match_parent"
+        app:layout="@layout/fragment_navigation_drawer"
         android:layout_gravity="start"
-        android:background="#111"
-        android:choiceMode="singleChoice"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0dp">
+        android:name="com.bielicki.brandon.mbira.NavigationDrawerFragment"
+        tools:layout="@layout/fragment_navigation_drawer" />
 
-        <ListView
-            android:id="@+id/menu"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:background="#111"
-            android:choiceMode="singleChoice"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="0dp"></ListView>
-    </LinearLayout>
+
 </android.support.v4.widget.DrawerLayout>

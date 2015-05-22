@@ -1,5 +1,6 @@
 package com.bielicki.brandon.mbira;
 
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -27,6 +28,9 @@ public class LearnMoreActivity extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.app_bar_transparent);
         toolbar.setTitle("Learn more about the Project");
         setSupportActionBar(toolbar);
+
+        NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
+        drawerFragment.setUp((DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
 
         TextView project_description = (TextView) findViewById(R.id.exhibitDescription);
         project_description.setText(project.getProjectDescription());

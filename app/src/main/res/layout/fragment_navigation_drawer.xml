@@ -1,0 +1,89 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEE"
+    tools:context="com.bielicki.brandon.mbira.NavigationDrawerFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:text="@string/hello_blank_fragment"-->
+        <!--/>-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:id="@+id/drawerImage"
+            android:src="@drawable/beaumont"
+            android:scaleType="center"
+            android:padding="0dp"
+        />
+
+        <ImageButton
+            android:id="@+id/exhibitImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/exhibits"
+            android:layout_below="@+id/drawerImage"
+            android:adjustViewBounds="true"
+            android:padding="0dp"
+            />
+
+        <ImageButton
+            android:id="@+id/explorationImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/explorations"
+            android:layout_below="@+id/exhibitImage"
+            android:adjustViewBounds="true"
+            android:padding="0dp"
+            />
+
+        <ImageButton
+            android:id="@+id/placesImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/places"
+            android:layout_below="@+id/explorationImage"
+            android:adjustViewBounds="true"
+            android:padding="0dp"
+            />
+
+        <ImageButton
+            android:id="@+id/randomImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/random"
+            android:layout_below="@+id/placesImage"
+            android:adjustViewBounds="true"
+            android:padding="0dp"
+            />
+
+        <ImageButton
+            android:id="@+id/learnImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/learn"
+            android:layout_below="@+id/randomImage"
+            android:adjustViewBounds="true"
+            android:padding="0dp"
+            />
+
+        <ImageButton
+            android:id="@+id/signInImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/expert"
+            android:layout_below="@+id/learnImage"
+            android:adjustViewBounds="true"
+            android:padding="0dp"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

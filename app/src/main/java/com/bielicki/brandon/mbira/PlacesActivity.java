@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Handler;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -82,8 +83,11 @@ public class PlacesActivity extends ActionBarActivity {
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("All Places");
+        getSupportActionBar().setTitle("All Places");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
+        drawerFragment.setUp((DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
 
         // Floating Action Button
 
