@@ -4,14 +4,14 @@
     tools:context="com.bielicki.brandon.mbira.ExhibitMapActivity">
     <item
         android:id="@+id/search"
-        android:icon="@drawable/search_dark"
+        android:icon="@drawable/searchdark"
         android:orderInCategory="200"
         android:title="@string/search"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/share"
-        android:icon="@drawable/share_dark"
+        android:icon="@drawable/sharedark"
         android:orderInCategory="200"
         android:title="@string/search"
         app:showAsAction="always" />

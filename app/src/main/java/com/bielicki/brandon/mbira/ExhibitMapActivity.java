@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.webkit.WebView;
+import android.widget.TextView;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.mapbox.mapboxsdk.api.ILatLng;
@@ -53,10 +54,14 @@ public class ExhibitMapActivity extends ActionBarActivity {
         getSupportActionBar().setTitle("");
 
 
+
         Intent intent = getIntent();
         int exhibitId = intent.getIntExtra("exhibitId", 0);
         int pos = intent.getIntExtra("pos",0);
         final Exhibit exhibit = project.getExhibitArrayList().get(pos);
+
+        TextView exhibitTitle = (TextView) findViewById(R.id.exhibitTitle);
+        exhibitTitle.setText(exhibit.name);
 
         mv = (MapView) findViewById(R.id.mapview);
         mv.setMinZoomLevel(mv.getTileProvider().getMinimumZoomLevel());
@@ -64,10 +69,6 @@ public class ExhibitMapActivity extends ActionBarActivity {
         mv.setCenter(mv.getTileProvider().getCenterCoordinate());
         mv.setZoom(0);
         currentMap = getResources().getString(R.string.streetMapId);
-
-        // Show user location
-        mv.setUserLocationEnabled(true);
-        mv.setUserLocationTrackingMode(UserLocationOverlay.TrackingMode.FOLLOW_BEARING);
 
         Marker m;
 
@@ -143,7 +144,9 @@ public class ExhibitMapActivity extends ActionBarActivity {
         findMyLocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // Show user location
+                mv.setUserLocationEnabled(true);
+                mv.setUserLocationTrackingMode(UserLocationOverlay.TrackingMode.FOLLOW_BEARING);
             }
         });
 
