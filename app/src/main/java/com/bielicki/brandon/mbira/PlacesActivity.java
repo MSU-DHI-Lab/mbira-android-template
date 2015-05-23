@@ -147,7 +147,9 @@ public class PlacesActivity extends ActionBarActivity {
         findMyLocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // Show user location
+                mv.setUserLocationEnabled(true);
+                mv.setUserLocationTrackingMode(UserLocationOverlay.TrackingMode.FOLLOW_BEARING);
             }
         });
 
@@ -160,11 +162,6 @@ public class PlacesActivity extends ActionBarActivity {
         mv.setZoom(0);
         currentMap = getResources().getString(R.string.streetMapId);
 
-        // Show user location
-        mv.setUserLocationEnabled(true);
-        mv.setUserLocationTrackingMode(UserLocationOverlay.TrackingMode.FOLLOW_BEARING);
-
-        //mv.loadFromGeoJSONURL("http://dev2.matrix.msu.edu/kora/plugins/mbira_plugin/json/map_area_data.geojson");
 
         Marker m;
 
@@ -181,21 +178,6 @@ public class PlacesActivity extends ActionBarActivity {
             m.setIcon(new Icon(this, Icon.Size.LARGE, "", "3EB9FD"));
             mv.addMarker(m);
         }
-
-//        // Test code to add cirlce
-//        class CircleOverlay extends Overlay {
-//            @Override
-//            protected void draw(Canvas canvas, MapView mapView, boolean shadow) {
-//                //do anything with the Canvas object
-//                Paint paint = new Paint();
-//                paint.setColor(Color.BLACK);
-//                paint.setStyle(Paint.Style.FILL);
-//                canvas.drawCircle(-20, -20, 20, paint);
-//            }
-//        }
-//
-//        CircleOverlay circle = new CircleOverlay();
-//        mv.addOverlay(circle);
 
         // On Click Listeners for the mapview
         mv.setOnClickListener(new View.OnClickListener() {
