@@ -13,12 +13,6 @@
         <!--layout="@layout/app_bar_transparent"-->
         <!--android:id="@+id/app_bar" />-->
 
-    <include
-        android:id="@+id/app_bar_transparent"
-        layout="@layout/app_bar_transparent"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
-
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
@@ -37,6 +31,12 @@
                 android:adjustViewBounds="true"
                 android:src="@drawable/beaumont"
                 android:scaleType="centerCrop" />
+
+            <include
+                android:id="@+id/app_bar_transparent"
+                layout="@layout/app_bar_transparent"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:layout_width="match_parent"
