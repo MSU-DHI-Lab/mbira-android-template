@@ -55,7 +55,9 @@ public class SingleExplorationActivity extends ActionBarActivity {
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(exploration.name);
+        getSupportActionBar().setTitle("");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         ImageView locationImage = (ImageView) findViewById(R.id.singleExplorationImageView);
         TextView titleTextView = (TextView) findViewById(R.id.singleExplorationTitleTextView);
@@ -110,10 +112,11 @@ public class SingleExplorationActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == android.R.id.home) {
+            this.onBackPressed();
             return true;
         }
+
 
         return super.onOptionsItemSelected(item);
     }

@@ -29,7 +29,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1ae1000-ebbe-424b-8fb4-b270f900f78e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bielicki/brandon/mbira/SingleExplorationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bielicki/brandon/mbira/SingleExplorationActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_learn_more.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_learn_more.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_single_exhibit.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_single_exhibit.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_single_exploration.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_single_exploration.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/config.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_single_exploration.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_single_exploration.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mbira-android-template.iws" />
@@ -63,24 +68,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu_exhibit_map.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_exhibit_map.xml">
+      <file leaf-file-name="activity_learn_more.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_learn_more.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-              <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_single_exhibit.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_single_exhibit.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8533917" vertical-offset="255" max-vertical-offset="1395">
-              <caret line="43" column="51" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
+            <state vertical-scroll-proportion="-12.222222" vertical-offset="0" max-vertical-offset="1395">
+              <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
               <folding>
-                <element signature="e#1761#1784#0" expanded="true" />
-                <element signature="e#2306#2335#0" expanded="true" />
+                <element signature="e#1971#1994#0" expanded="true" />
+                <element signature="e#2472#2501#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -89,13 +84,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu_exploration_map.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_exploration_map.xml">
+      <file leaf-file-name="activity_home.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+            <state vertical-scroll-proportion="-10.555555" vertical-offset="330" max-vertical-offset="1950">
+              <caret line="41" column="42" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+              <folding>
+                <element signature="tag#ImageButton#0;tag#RelativeLayout#0;tag#FrameLayout#0;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
+                <element signature="tag#ImageButton#1;tag#RelativeLayout#0;tag#FrameLayout#0;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
+                <element signature="tag#ImageButton#2;tag#RelativeLayout#0;tag#FrameLayout#0;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
+                <element signature="tag#ImageButton#3;tag#RelativeLayout#0;tag#FrameLayout#0;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
+                <element signature="tag#ImageButton#4;tag#RelativeLayout#0;tag#FrameLayout#0;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_single_exploration.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_single_exploration.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4585153" vertical-offset="150" max-vertical-offset="1275">
+              <caret line="24" column="47" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -1309,7 +1326,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_exhibits.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_places.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bielicki/brandon/mbira/LearnMoreActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_learn_more.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_explorations.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bielicki/brandon/mbira/ExplorationsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bielicki/brandon/mbira/PlacesActivity.java" />
@@ -1321,6 +1337,11 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_exhibit_map.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bielicki/brandon/mbira/ExhibitMapActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_exhibit_map.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_single_exploration.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_single_exploration.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/config.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bielicki/brandon/mbira/SingleExplorationActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_learn_more.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_single_exhibit.xml" />
       </list>
     </option>
@@ -1388,28 +1409,6 @@
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mbira-android-template" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="menu" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1439,40 +1438,8 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mbira-android-template" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mbira-android-template" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mbira" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -1704,7 +1671,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32720104" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.325887" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1712,7 +1679,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20171674" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32720104" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.325887" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1807,20 +1774,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bielicki/brandon/mbira/SingleExplorationActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="55" column="55" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_single_exploration.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21913044" vertical-offset="0" max-vertical-offset="0">
-          <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_translucent.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16483517" vertical-offset="0" max-vertical-offset="0">
@@ -1859,13 +1812,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bielicki/brandon/mbira/SingleExhibitActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68869567" vertical-offset="0" max-vertical-offset="0">
-          <caret line="34" column="23" selection-start-line="34" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/gradient_image_overlay.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -1898,14 +1844,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -1958,20 +1896,6 @@
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_learn_more.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7599119" vertical-offset="0" max-vertical-offset="1275">
-          <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
-          <folding>
-            <element signature="e#1688#1711#0" expanded="false" />
-            <element signature="e#2189#2218#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bielicki/brandon/mbira/ExhibitsActivity.java">
@@ -2031,39 +1955,11 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_single_exploration.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.3333335" vertical-offset="453" max-vertical-offset="1155">
-          <caret line="38" column="46" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_single_location.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.222222" vertical-offset="0" max-vertical-offset="1080">
           <caret line="22" column="47" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
           <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.148148" vertical-offset="1244" max-vertical-offset="1950">
-          <caret line="94" column="52" selection-start-line="94" selection-start-column="52" selection-end-line="94" selection-end-column="52" />
-          <folding>
-            <element signature="tag#ImageButton#0;tag#RelativeLayout#0;tag#FrameLayout#0;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
-            <element signature="tag#ImageButton#1;tag#RelativeLayout#0;tag#FrameLayout#0;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
-            <element signature="tag#ImageButton#2;tag#RelativeLayout#0;tag#FrameLayout#0;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
-            <element signature="tag#ImageButton#3;tag#RelativeLayout#0;tag#FrameLayout#0;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
-            <element signature="tag#ImageButton#4;tag#RelativeLayout#0;tag#FrameLayout#0;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
-          </folding>
         </state>
       </provider>
       <provider editor-type-id="android-designer">
@@ -2116,9 +2012,9 @@
         <state vertical-scroll-proportion="1.0765865" vertical-offset="228" max-vertical-offset="930">
           <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
           <folding>
-            <element signature="e#548#573#0" expanded="true" />
-            <element signature="e#595#616#0" expanded="true" />
-            <element signature="e#1743#1764#0" expanded="true" />
+            <element signature="e#548#573#0" expanded="false" />
+            <element signature="e#595#616#0" expanded="false" />
+            <element signature="e#1743#1764#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2163,22 +2059,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bielicki/brandon/mbira/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2070">
-          <caret line="30" column="14" selection-start-line="30" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_exploration_map.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_single_exhibit.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4338843" vertical-offset="0" max-vertical-offset="484">
@@ -2187,22 +2067,114 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_exhibit_map.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_exploration_map.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.55785125" vertical-offset="0" max-vertical-offset="484">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_single_exhibit.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_single_exploration.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8533917" vertical-offset="255" max-vertical-offset="1395">
-          <caret line="43" column="51" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.52577317" vertical-offset="0" max-vertical-offset="485">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
           <folding>
-            <element signature="e#1761#1784#0" expanded="true" />
-            <element signature="e#2306#2335#0" expanded="true" />
+            <element signature="e#394#410#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0927835" vertical-offset="0" max-vertical-offset="485">
+          <caret line="3" column="75" selection-start-line="3" selection-start-column="75" selection-end-line="3" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bielicki/brandon/mbira/SingleExplorationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28865978" vertical-offset="1030" max-vertical-offset="2790">
+          <caret line="111" column="64" selection-start-line="111" selection-start-column="64" selection-end-line="111" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bielicki/brandon/mbira/SingleExhibitActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25773194" vertical-offset="625" max-vertical-offset="1110">
+          <caret line="59" column="67" selection-start-line="59" selection-start-column="67" selection-end-line="59" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_exhibit_map.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21649484" vertical-offset="0" max-vertical-offset="485">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bielicki/brandon/mbira/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2070">
+          <caret line="30" column="14" selection-start-line="30" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_learn_more.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.222222" vertical-offset="0" max-vertical-offset="1395">
+          <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+          <folding>
+            <element signature="e#1971#1994#0" expanded="true" />
+            <element signature="e#2472#2501#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.555555" vertical-offset="330" max-vertical-offset="1950">
+          <caret line="41" column="42" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+          <folding>
+            <element signature="tag#ImageButton#0;tag#RelativeLayout#0;tag#FrameLayout#0;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
+            <element signature="tag#ImageButton#1;tag#RelativeLayout#0;tag#FrameLayout#0;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
+            <element signature="tag#ImageButton#2;tag#RelativeLayout#0;tag#FrameLayout#0;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
+            <element signature="tag#ImageButton#3;tag#RelativeLayout#0;tag#FrameLayout#0;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
+            <element signature="tag#ImageButton#4;tag#RelativeLayout#0;tag#FrameLayout#0;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_single_exhibit.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1410">
+          <caret line="32" column="51" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
+          <folding>
+            <element signature="e#1897#1920#0" expanded="true" />
+            <element signature="e#2442#2471#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_single_exploration.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4585153" vertical-offset="150" max-vertical-offset="1275">
+          <caret line="24" column="47" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">

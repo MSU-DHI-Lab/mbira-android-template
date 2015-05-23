@@ -10,13 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <include
-            android:id="@+id/app_bar"
-            layout="@layout/app_bar_translucent"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            />
-
 
         <ImageView
             android:id="@+id/singleExplorationImageView"
@@ -25,6 +18,21 @@
             android:layout_centerHorizontal="true"
             android:adjustViewBounds="true"
             android:src="@drawable/beaumont" />
+
+        <ImageView
+            android:id="@+id/imageOverlay"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#660A263D"
+            android:layout_alignBottom="@+id/singleExplorationImageView" />
+
+
+        <include
+            android:id="@+id/app_bar"
+            layout="@layout/app_bar_transparent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/goToMapButton"
