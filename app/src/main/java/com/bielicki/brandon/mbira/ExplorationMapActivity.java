@@ -2,15 +2,19 @@ package com.bielicki.brandon.mbira;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.webkit.WebView;
+import android.widget.TextView;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.mapbox.mapboxsdk.api.ILatLng;
@@ -35,6 +39,7 @@ public class ExplorationMapActivity extends ActionBarActivity {
     private MapView mv;
     private UserLocationOverlay myLocationOverlay;
     private String currentMap = null;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +58,15 @@ public class ExplorationMapActivity extends ActionBarActivity {
         mv.setZoom(0);
         currentMap = getResources().getString(R.string.streetMapId);
 
-        // Show user location
-        mv.setUserLocationEnabled(true);
-        mv.setUserLocationTrackingMode(UserLocationOverlay.TrackingMode.FOLLOW_BEARING);
+        TextView explorationTitle = (TextView) findViewById(R.id.explorationTitle);
+        explorationTitle.setText(exploration.name);
 
+        toolbar = (Toolbar) findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("");
+        final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+        upArrow.setColorFilter(getResources().getColor(R.color.black), PorterDuff.Mode.SRC_ATOP);
+        getSupportActionBar().setHomeAsUpIndicator(upArrow);
 
 
 //        for(int x = 0; x < exploration.getLocationArrayList().size(); x++) {
@@ -144,60 +154,57 @@ public class ExplorationMapActivity extends ActionBarActivity {
 
         // Floating Action Button
 
-        final FloatingActionButton randomLocationButton = (FloatingActionButton) findViewById(R.id.randomLocationButton);
         final FloatingActionButton findMyLocationButton = (FloatingActionButton) findViewById(R.id.findMyLocationButton);
 
         findMyLocationButton.hide(false);
-        randomLocationButton.hide(false);
 
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 findMyLocationButton.show(true);
-                randomLocationButton.show(true);
                 findMyLocationButton.setShowAnimation(AnimationUtils.loadAnimation(ExplorationMapActivity.this, R.anim.show_from_buttom));
                 findMyLocationButton.setHideAnimation(AnimationUtils.loadAnimation(ExplorationMapActivity.this, R.anim.hide_to_buttom));
-                randomLocationButton.setShowAnimation(AnimationUtils.loadAnimation(ExplorationMapActivity.this, R.anim.show_from_buttom));
-                randomLocationButton.setHideAnimation(AnimationUtils.loadAnimation(ExplorationMapActivity.this, R.anim.hide_to_buttom));
             }
         }, 300);
 
-        randomLocationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Random r = new Random();
-                Integer min = 0;
-                Integer max = exploration.getMapItemArrayList().size() - 1;
-                Integer i = r.nextInt(max - min + 1) + min;
-
-                if (!max.equals(-1)) {
-                    Intent intent = new Intent(ExplorationMapActivity.this, SingleLocation.class);
-                    Bundle bundle = new Bundle();
-
-                    // Checking if the MapItem is of instance type Area
-                    if (exploration.getMapItemArrayList().get(i) instanceof Area) {
-                        bundle.putDouble("Latitude", ((Area) exploration.getMapItemArrayList().get(i)).coordinates.get(0).getX());
-                        bundle.putDouble("Longitude", ((Area) exploration.getMapItemArrayList().get(i)).coordinates.get(0).getY());
-                    }
-
-                    // Checking if the MapItem is of instance type Location
-                    else if (exploration.getMapItemArrayList().get(i) instanceof Location) {
-                        bundle.putDouble("Latitude", ((Location) exploration.getMapItemArrayList().get(i)).latitude);
-                        bundle.putDouble("Longitude", ((Location) exploration.getMapItemArrayList().get(i)).longitude);
-                    }
-
-                    intent.putExtras(bundle);
-                    startActivity(intent);
-                }
-
-            }
-        });
+//        randomLocationButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Random r = new Random();
+//                Integer min = 0;
+//                Integer max = exploration.getMapItemArrayList().size() - 1;
+//                Integer i = r.nextInt(max - min + 1) + min;
+//
+//                if (!max.equals(-1)) {
+//                    Intent intent = new Intent(ExplorationMapActivity.this, SingleLocation.class);
+//                    Bundle bundle = new Bundle();
+//
+//                    // Checking if the MapItem is of instance type Area
+//                    if (exploration.getMapItemArrayList().get(i) instanceof Area) {
+//                        bundle.putDouble("Latitude", ((Area) exploration.getMapItemArrayList().get(i)).coordinates.get(0).getX());
+//                        bundle.putDouble("Longitude", ((Area) exploration.getMapItemArrayList().get(i)).coordinates.get(0).getY());
+//                    }
+//
+//                    // Checking if the MapItem is of instance type Location
+//                    else if (exploration.getMapItemArrayList().get(i) instanceof Location) {
+//                        bundle.putDouble("Latitude", ((Location) exploration.getMapItemArrayList().get(i)).latitude);
+//                        bundle.putDouble("Longitude", ((Location) exploration.getMapItemArrayList().get(i)).longitude);
+//                    }
+//
+//                    intent.putExtras(bundle);
+//                    startActivity(intent);
+//                }
+//
+//            }
+//        });
 
         findMyLocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // Show user location
+                mv.setUserLocationEnabled(true);
+                mv.setUserLocationTrackingMode(UserLocationOverlay.TrackingMode.FOLLOW_BEARING);
             }
         });
 
@@ -267,7 +274,7 @@ public class ExplorationMapActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_exploration_map, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -277,8 +284,8 @@ public class ExplorationMapActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == android.R.id.home) {
+            this.onBackPressed();
             return true;
         }
 

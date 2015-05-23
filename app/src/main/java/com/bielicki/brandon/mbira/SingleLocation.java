@@ -49,6 +49,7 @@ public class SingleLocation extends ActionBarActivity {
         Double longitude = bundle.getDouble("Longitude");
 
 
+        // Fix the App Crash here
         for(int x = 0; x < project.getLocationArrayList().size(); x++) {
             if ( (project.getLocationArrayList().get(x).latitude == latitude) && ((project.getLocationArrayList().get(x).longitude == longitude))){
                 isLocation = true;
