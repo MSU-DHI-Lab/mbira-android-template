@@ -154,6 +154,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="false"
+                android:layout_alignParentRight="false"
                 android:layout_margin="0dp"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/learnMore"
@@ -170,7 +171,7 @@
     <!-- drawer content -->
     <fragment
         android:id="@+id/fragment_navigation_drawer"
-        android:layout_width="240dp"
+        android:layout_width="310dp"
         android:layout_height="match_parent"
         app:layout="@layout/fragment_navigation_drawer"
         android:layout_gravity="start"

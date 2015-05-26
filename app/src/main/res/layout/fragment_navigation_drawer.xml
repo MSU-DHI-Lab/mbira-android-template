@@ -2,88 +2,118 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EEE"
+    android:background="@color/white"
     tools:context="com.bielicki.brandon.mbira.NavigationDrawerFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:text="@string/hello_blank_fragment"-->
-        <!--/>-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:text="@string/hello_blank_fragment"-->
+    <!--/>-->
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/drawerImage"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:id="@+id/drawerImage"
-            android:src="@drawable/beaumont"
-            android:scaleType="center"
             android:padding="0dp"
-        />
+            android:scaleType="center"
+            android:src="@drawable/beaumont" />
+
+        <ImageView
+            android:id="@+id/imageOverlay"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#660A263D"
+            android:layout_alignBottom="@+id/drawerImage"
+            />
+
+        <ImageView
+            android:id="@+id/projectLogoImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="30dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/projectlogo"
+            />
+
+        <TextView
+            android:id="@+id/projectTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/exhibitImage"
+            android:text="@string/placeholder"
+            android:textColor="@color/white"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <ImageButton
             android:id="@+id/exhibitImage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/exhibits"
+            android:layout_height="50dp"
             android:layout_below="@+id/drawerImage"
             android:adjustViewBounds="true"
+            android:background="@color/white"
             android:padding="0dp"
-            />
+            android:src="@drawable/exhibitsnav" />
 
         <ImageButton
             android:id="@+id/explorationImage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/explorations"
+            android:layout_height="50dp"
             android:layout_below="@+id/exhibitImage"
             android:adjustViewBounds="true"
+            android:background="@color/white"
             android:padding="0dp"
-            />
+            android:src="@drawable/explorationsnav" />
 
         <ImageButton
             android:id="@+id/placesImage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/places"
+            android:layout_height="50dp"
             android:layout_below="@+id/explorationImage"
             android:adjustViewBounds="true"
+            android:background="@color/white"
             android:padding="0dp"
-            />
+            android:src="@drawable/placesnav" />
 
         <ImageButton
             android:id="@+id/randomImage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/random"
+            android:layout_height="50dp"
             android:layout_below="@+id/placesImage"
             android:adjustViewBounds="true"
+            android:background="@color/white"
             android:padding="0dp"
-            />
+            android:src="@drawable/randomnav" />
 
         <ImageButton
             android:id="@+id/learnImage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/learn"
+            android:layout_height="50dp"
             android:layout_below="@+id/randomImage"
             android:adjustViewBounds="true"
+            android:background="@color/white"
             android:padding="0dp"
-            />
+            android:src="@drawable/learnnav" />
 
         <ImageButton
             android:id="@+id/signInImage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/expert"
+            android:layout_height="50dp"
             android:layout_below="@+id/learnImage"
             android:adjustViewBounds="true"
+            android:background="@color/white"
             android:padding="0dp"
-            />
+            android:src="@drawable/expertnav" />
+
     </RelativeLayout>
 
 </RelativeLayout>

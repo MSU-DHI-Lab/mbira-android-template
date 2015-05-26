@@ -37,7 +37,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginBottom="8dp"
         android:layout_marginRight="8dp"
-        android:src="@drawable/findlocation" />
+        android:src="@drawable/mylocation" />
 
     <TextView
         android:id="@+id/exhibitTitle"

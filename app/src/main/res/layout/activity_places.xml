@@ -29,7 +29,7 @@
             android:id="@+id/randomLocationButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/findlocation"
+            android:src="@drawable/random"
             android:layout_marginBottom="8dp"
             android:layout_marginRight="8dp"
             android:layout_alignParentBottom="true"
@@ -40,7 +40,7 @@
             android:id="@+id/findMyLocationButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/findlocation"
+            android:src="@drawable/mylocation"
             android:layout_marginBottom="8dp"
             android:layout_marginRight="8dp"
             android:layout_alignParentBottom="false"
@@ -55,7 +55,7 @@
     <!-- drawer content -->
     <fragment
         android:id="@+id/fragment_navigation_drawer"
-        android:layout_width="240dp"
+        android:layout_width="@dimen/navbar_width"
         android:layout_height="match_parent"
         app:layout="@layout/fragment_navigation_drawer"
         android:layout_gravity="start"

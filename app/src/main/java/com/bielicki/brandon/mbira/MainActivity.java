@@ -9,6 +9,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -108,39 +109,52 @@ public class MainActivity extends ActionBarActivity {
         if (project.getLocationArrayList().isEmpty() && project.getAreaArrayList().isEmpty()){
             Toast.makeText(getApplicationContext(), "No Locations are present in the database",
                     Toast.LENGTH_LONG).show();
+            Log.i("Random: ","Both Area and Locations Empty");
             return;
-        }
-
-        else if(project.getAreaArrayList().isEmpty() && !project.getLocationArrayList().isEmpty()){
-            i = 1;
         }
 
         else if(project.getLocationArrayList().isEmpty() && !project.getAreaArrayList().isEmpty()){
             i = 0;
+            Log.i("Random: ","Location List is Empty");
+            Log.i("LocationList: ", String.valueOf(project.getLocationArrayList().isEmpty()));
+            Log.i("LocationSize: ", String.valueOf(project.getLocationArrayList().size()));
+
         }
+
+        else if(project.getAreaArrayList().isEmpty() && !project.getLocationArrayList().isEmpty()){
+            i = 1;
+            Log.i("Random: ","Area List is Empty");
+            Log.i("AreaList: ", String.valueOf(project.getAreaArrayList().isEmpty()));
+
+        }
+
 
         // Location Chosen
         if (i.equals(1)) {
             max = project.getLocationArrayList().size() - 1;
             i = r.nextInt(max - min + 1) + min;
-            Intent intent = new Intent(this, SingleLocation.class);
-            Bundle bundle = new Bundle();
-            bundle.putDouble("Latitude", project.getLocationArrayList().get(i).latitude);
-            bundle.putDouble("Longitude", project.getLocationArrayList().get(i).longitude);
-            intent.putExtras(bundle);
-            startActivity(intent);
+
+            Log.i("Location Chosen: ","Max: " + max + "  i: " + i);
+//            Intent intent = new Intent(this, SingleLocation.class);
+//            Bundle bundle = new Bundle();
+//            bundle.putDouble("Latitude", project.getLocationArrayList().get(i).latitude);
+//            bundle.putDouble("Longitude", project.getLocationArrayList().get(i).longitude);
+//            intent.putExtras(bundle);
+//            startActivity(intent);
         }
 
         //Area Chosen
         else {
             max = project.getAreaArrayList().size() - 1;
             i = r.nextInt(max - min + 1) + min;
-            Intent intent = new Intent(this, SingleLocation.class);
-            Bundle bundle = new Bundle();
-            bundle.putDouble("Latitude", project.getAreaArrayList().get(i).coordinates.get(0).getX());
-            bundle.putDouble("Longitude", project.getAreaArrayList().get(i).coordinates.get(0).getY());
-            intent.putExtras(bundle);
-            startActivity(intent);
+
+            Log.i("Area Chosen: ","Max: " + max + "  i: " + i);
+//            Intent intent = new Intent(this, SingleLocation.class);
+//            Bundle bundle = new Bundle();
+//            bundle.putDouble("Latitude", project.getAreaArrayList().get(i).coordinates.get(0).getX());
+//            bundle.putDouble("Longitude", project.getAreaArrayList().get(i).coordinates.get(0).getY());
+//            intent.putExtras(bundle);
+//            startActivity(intent);
         }
     }
 

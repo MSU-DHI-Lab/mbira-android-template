@@ -80,9 +80,9 @@ public class SetAreaData extends AsyncTask<Void,Void,AppData> {
                     area.project_id = -1;
                 }
                 try {
-                    area.exhibit_id = areas.getJSONObject(y).getInt("exhibit_id");
+                    area.geojson_path = areas.getJSONObject(y).getString("geojson");
                 } catch (JSONException e) {
-                    area.exhibit_id = -1;
+                    area.geojson_path = "";
                 }
                 try {
                     area.name = areas.getJSONObject(y).getString("name");

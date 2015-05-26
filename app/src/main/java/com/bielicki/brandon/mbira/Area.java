@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Area extends MapItem {
     public int id;
     public int project_id;
-    public int exhibit_id;
+    public String geojson_path;
     public String name;
     public String description;
     public String dig_deeper;

@@ -30,7 +30,7 @@
     <!-- drawer content -->
     <fragment
         android:id="@+id/fragment_navigation_drawer"
-        android:layout_width="240dp"
+        android:layout_width="@dimen/navbar_width"
         android:layout_height="match_parent"
         app:layout="@layout/fragment_navigation_drawer"
         android:layout_gravity="start"

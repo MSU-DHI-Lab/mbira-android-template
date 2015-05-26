@@ -65,6 +65,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="false"
+            android:layout_alignParentRight="false"
             android:textColor="@android:color/white"
             android:background="#445963"
             android:fillViewport = "true"
@@ -78,7 +79,7 @@
     <!-- drawer content -->
     <fragment
         android:id="@+id/fragment_navigation_drawer"
-        android:layout_width="240dp"
+        android:layout_width="@dimen/navbar_width"
         android:layout_height="match_parent"
         app:layout="@layout/fragment_navigation_drawer"
         android:layout_gravity="start"

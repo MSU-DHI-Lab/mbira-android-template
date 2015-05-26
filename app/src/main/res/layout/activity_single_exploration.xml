@@ -38,12 +38,13 @@
             android:id="@+id/goToMapButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/gotomap"
+            android:src="@drawable/map"
             android:layout_marginBottom="8dp"
             android:layout_marginRight="8dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="false"
             android:layout_alignParentStart="false"
+            android:layout_alignParentLeft="false"
             android:layout_alignBottom="@+id/singleExplorationImageView"/>
 
     </RelativeLayout>
