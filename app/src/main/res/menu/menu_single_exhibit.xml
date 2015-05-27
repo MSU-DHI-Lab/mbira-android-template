@@ -5,14 +5,14 @@
 
     <item
         android:id="@+id/search"
-        android:icon="@drawable/searchbig"
+        android:icon="@drawable/searchwhite"
         android:orderInCategory="200"
         android:title="@string/search"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/share"
-        android:icon="@drawable/share_icon"
+        android:icon="@drawable/sharewhite"
         android:orderInCategory="200"
         android:title="@string/search"
         app:showAsAction="always" />

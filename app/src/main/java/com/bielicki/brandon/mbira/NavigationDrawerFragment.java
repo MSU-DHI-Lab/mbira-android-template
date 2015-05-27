@@ -120,22 +120,22 @@ public class NavigationDrawerFragment extends Fragment {
                 if (project.getLocationArrayList().isEmpty() && project.getAreaArrayList().isEmpty()){
                     Toast.makeText(getActivity(), "No Locations are present in the database",
                             Toast.LENGTH_LONG).show();
-                    Log.i("Random: ", "Both Area and Locations Empty");
+                    //Log.i("Random: ", "Both Area and Locations Empty");
                     return;
                 }
 
                 else if(project.getLocationArrayList().isEmpty() && !project.getAreaArrayList().isEmpty()){
                     i = 0;
-                    Log.i("Random: ","Location List is Empty");
-                    Log.i("LocationList: ", String.valueOf(project.getLocationArrayList().isEmpty()));
-                    Log.i("LocationSize: ", String.valueOf(project.getLocationArrayList().size()));
+//                    Log.i("Random: ","Location List is Empty");
+//                    Log.i("LocationList: ", String.valueOf(project.getLocationArrayList().isEmpty()));
+//                    Log.i("LocationSize: ", String.valueOf(project.getLocationArrayList().size()));
 
                 }
 
                 else if(project.getAreaArrayList().isEmpty() && !project.getLocationArrayList().isEmpty()){
                     i = 1;
-                    Log.i("Random: ","Area List is Empty");
-                    Log.i("AreaList: ", String.valueOf(project.getAreaArrayList().isEmpty()));
+//                    Log.i("Random: ","Area List is Empty");
+//                    Log.i("AreaList: ", String.valueOf(project.getAreaArrayList().isEmpty()));
 
                 }
 
@@ -145,7 +145,7 @@ public class NavigationDrawerFragment extends Fragment {
                     max = project.getLocationArrayList().size() - 1;
                     i = r.nextInt(max - min + 1) + min;
 
-                    Log.i("Location Chosen: ","Max: " + max + "  i: " + i);
+//                    Log.i("Location Chosen: ","Max: " + max + "  i: " + i);
                     Intent intent = new Intent(getActivity(), SingleLocation.class);
                     Bundle bundle = new Bundle();
                     bundle.putDouble("Latitude", project.getLocationArrayList().get(i).latitude);
@@ -159,7 +159,7 @@ public class NavigationDrawerFragment extends Fragment {
                     max = project.getAreaArrayList().size() - 1;
                     i = r.nextInt(max - min + 1) + min;
 
-                    Log.i("Area Chosen: ","Max: " + max + "  i: " + i);
+//                    Log.i("Area Chosen: ","Max: " + max + "  i: " + i);
                     Intent intent = new Intent(getActivity(), SingleLocation.class);
                     Bundle bundle = new Bundle();
                     bundle.putDouble("Latitude", project.getAreaArrayList().get(i).coordinates.get(0).getX());
