@@ -30,7 +30,9 @@ public class AppData {
 
     //PROJECT RELATED DATA
     private String projectImageUrl;
-    private String projectDescription;
+//    private String projectDescription;
+    private String projectShortDescription;
+    private String projectLongDescripion;
     private String projectName;
 
     public String getProjectImageUrl() {
@@ -41,13 +43,13 @@ public class AppData {
         this.projectImageUrl = projectImageUrl;
     }
 
-    public String getProjectDescription() {
-        return projectDescription;
-    }
-
-    public void setProjectDescription(String des) {
-        this.projectDescription = des;
-    }
+//    public String getProjectDescription() {
+//        return projectDescription;
+//    }
+//
+//    public void setProjectDescription(String des) {
+//        this.projectDescription = des;
+//    }
 
     public String getProjectName() {
         return projectName;
@@ -109,6 +111,22 @@ public class AppData {
     }
     public void addExploration(Exploration e) {
         explorationArrayList.add(e);
+    }
+
+    public String getProjectShortDescription() {
+        return projectShortDescription;
+    }
+
+    public void setProjectShortDescription(String projectShortDescription) {
+        this.projectShortDescription = projectShortDescription;
+    }
+
+    public String getProjectLongDescripion() {
+        return projectLongDescripion;
+    }
+
+    public void setProjectLongDescripion(String projectLongDescripion) {
+        this.projectLongDescripion = projectLongDescripion;
     }
 }
 

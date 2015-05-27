@@ -121,9 +121,14 @@ public class SetProjectData extends AsyncTask<LoadingActivity,Void,AppData> {
         try {
             JSONObject projectInfo = new JSONObject(text);
             try {
-                project.setProjectDescription(projectInfo.getString("description"));
+                project.setProjectShortDescription(projectInfo.getString("shortDescription"));
             } catch (JSONException e) {
-                project.setProjectDescription("");
+                project.setProjectShortDescription("");
+            }
+            try {
+                project.setProjectLongDescripion(projectInfo.getString("longDescription"));
+            } catch (JSONException e) {
+                project.setProjectLongDescripion("");
             }
             try {
                 project.setProjectName(projectInfo.getString("name"));

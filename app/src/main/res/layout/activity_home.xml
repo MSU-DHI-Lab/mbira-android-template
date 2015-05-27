@@ -70,6 +70,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
                             android:layout_marginRight="15dp"
+                            android:singleLine="true"
                             android:text="@string/placeholder"
                             android:textColor="#ffffff"
                             android:textSize="30sp" />
@@ -171,11 +172,11 @@
     <!-- drawer content -->
     <fragment
         android:id="@+id/fragment_navigation_drawer"
+        android:name="com.bielicki.brandon.mbira.NavigationDrawerFragment"
         android:layout_width="310dp"
         android:layout_height="match_parent"
-        app:layout="@layout/fragment_navigation_drawer"
         android:layout_gravity="start"
-        android:name="com.bielicki.brandon.mbira.NavigationDrawerFragment"
+        app:layout="@layout/fragment_navigation_drawer"
         tools:layout="@layout/fragment_navigation_drawer" />
 
 

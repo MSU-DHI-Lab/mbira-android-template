@@ -33,7 +33,7 @@ public class LearnMoreActivity extends ActionBarActivity {
         drawerFragment.setUp((DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
 
         TextView project_description = (TextView) findViewById(R.id.exhibitDescription);
-        project_description.setText(project.getProjectDescription());
+        project_description.setText(project.getProjectLongDescripion());
 
         TextView project_title = (TextView) findViewById(R.id.exhibitTitle);
         project_title.setText(project.getProjectName());

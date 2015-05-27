@@ -13,8 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.w3c.dom.Text;
 
@@ -66,6 +69,9 @@ public class NavigationDrawerFragment extends Fragment {
                 mDrawerToggle.syncState();
             }
         });
+
+        ImageView drawerImage = (ImageView) getView().findViewById(R.id.drawerImage);
+        ImageLoader.getInstance().displayImage(project.getProjectImageUrl(), drawerImage);
 
         TextView projectTitle = (TextView) getView().findViewById(R.id.projectTitle);
         projectTitle.setText(project.getProjectName());

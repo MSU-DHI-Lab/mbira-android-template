@@ -52,7 +52,7 @@ public class MainActivity extends ActionBarActivity {
 
         //projectImageView.setImageBitmap(project.getProjectImage());
         ImageLoader.getInstance().displayImage(project.getProjectImageUrl(),projectImageView);
-        projectDescription.setText(project.getProjectDescription());
+        projectDescription.setText(project.getProjectShortDescription());
         projectTitle.setText(project.getProjectName());
 
 
@@ -118,16 +118,19 @@ public class MainActivity extends ActionBarActivity {
             Log.i("Random: ","Location List is Empty");
             Log.i("LocationList: ", String.valueOf(project.getLocationArrayList().isEmpty()));
             Log.i("LocationSize: ", String.valueOf(project.getLocationArrayList().size()));
-
         }
 
         else if(project.getAreaArrayList().isEmpty() && !project.getLocationArrayList().isEmpty()){
             i = 1;
             Log.i("Random: ","Area List is Empty");
             Log.i("AreaList: ", String.valueOf(project.getAreaArrayList().isEmpty()));
-
+            Log.i("AreaSize: ", String.valueOf(project.getAreaArrayList().size()));
         }
 
+        else {
+            Log.i("Random: ","Both lists are not Empty.");
+            Log.i("i: ", String.valueOf(i));
+        }
 
         // Location Chosen
         if (i.equals(1)) {
@@ -135,12 +138,13 @@ public class MainActivity extends ActionBarActivity {
             i = r.nextInt(max - min + 1) + min;
 
             Log.i("Location Chosen: ","Max: " + max + "  i: " + i);
-//            Intent intent = new Intent(this, SingleLocation.class);
-//            Bundle bundle = new Bundle();
-//            bundle.putDouble("Latitude", project.getLocationArrayList().get(i).latitude);
-//            bundle.putDouble("Longitude", project.getLocationArrayList().get(i).longitude);
-//            intent.putExtras(bundle);
-//            startActivity(intent);
+            Log.i("Location Name:", project.getLocationArrayList().get(i).name);
+            Intent intent = new Intent(this, SingleLocation.class);
+            Bundle bundle = new Bundle();
+            bundle.putDouble("Latitude", project.getLocationArrayList().get(i).latitude);
+            bundle.putDouble("Longitude", project.getLocationArrayList().get(i).longitude);
+            intent.putExtras(bundle);
+            startActivity(intent);
         }
 
         //Area Chosen
@@ -149,12 +153,13 @@ public class MainActivity extends ActionBarActivity {
             i = r.nextInt(max - min + 1) + min;
 
             Log.i("Area Chosen: ","Max: " + max + "  i: " + i);
-//            Intent intent = new Intent(this, SingleLocation.class);
-//            Bundle bundle = new Bundle();
-//            bundle.putDouble("Latitude", project.getAreaArrayList().get(i).coordinates.get(0).getX());
-//            bundle.putDouble("Longitude", project.getAreaArrayList().get(i).coordinates.get(0).getY());
-//            intent.putExtras(bundle);
-//            startActivity(intent);
+            Log.i("Area Name:", project.getAreaArrayList().get(i).name);
+            Intent intent = new Intent(this, SingleLocation.class);
+            Bundle bundle = new Bundle();
+            bundle.putDouble("Latitude", project.getAreaArrayList().get(i).coordinates.get(0).getX());
+            bundle.putDouble("Longitude", project.getAreaArrayList().get(i).coordinates.get(0).getY());
+            intent.putExtras(bundle);
+            startActivity(intent);
         }
     }
 
