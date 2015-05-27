@@ -66,17 +66,22 @@ public class ExhibitMapActivity extends ActionBarActivity {
         mv = (MapView) findViewById(R.id.mapview);
         mv.setMinZoomLevel(mv.getTileProvider().getMinimumZoomLevel());
         mv.setMaxZoomLevel(mv.getTileProvider().getMaximumZoomLevel());
-        mv.setCenter(mv.getTileProvider().getCenterCoordinate());
-        mv.setZoom(0);
         currentMap = getResources().getString(R.string.streetMapId);
 
         Marker m;
+        Double placesCount = 0.0;
+        Double centerLat = 0.0;
+        Double centerLong = 0.0;
 
         // Loading all the location markers in the exhibit chosen
         for(int x = 0; x < exhibit.getLocationArrayList().size(); x++) {
             m = new Marker(mv, exhibit.getLocationArrayList().get(x).name, "", new LatLng(exhibit.getLocationArrayList().get(x).latitude, exhibit.getLocationArrayList().get(x).longitude));
             m.setIcon(new Icon(this, Icon.Size.LARGE, "", "3EB9FD"));
             mv.addMarker(m);
+
+            centerLat += project.getLocationArrayList().get(x).latitude;
+            centerLong += project.getLocationArrayList().get(x).longitude;
+            placesCount++;
         }
 
         // Loading all the area markers in the exhibit chosen
@@ -84,7 +89,25 @@ public class ExhibitMapActivity extends ActionBarActivity {
             m = new Marker(mv, exhibit.getAreaArrayList().get(x).name, "", new LatLng(exhibit.getAreaArrayList().get(x).coordinates.get(0).getX(), exhibit.getAreaArrayList().get(x).coordinates.get(0).getY()));
             m.setIcon(new Icon(this, Icon.Size.LARGE, "", "3EB9FD"));
             mv.addMarker(m);
+
+            centerLat += project.getAreaArrayList().get(x).coordinates.get(0).getX();
+            centerLong += project.getAreaArrayList().get(x).coordinates.get(0).getY();
+            placesCount++;
         }
+
+
+        if ( (centerLat == 0.0) && (centerLong == 0.0))
+        {
+            mv.setCenter(mv.getTileProvider().getCenterCoordinate());
+            mv.setZoom(0);
+        }
+
+        else {
+            LatLng centerCoord = new LatLng(centerLat/placesCount, centerLong/placesCount);
+            mv.setCenter(centerCoord);
+            mv.setZoom(13);
+        }
+
 
         // Floating Action Button
 

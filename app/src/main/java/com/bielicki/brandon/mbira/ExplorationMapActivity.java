@@ -54,8 +54,6 @@ public class ExplorationMapActivity extends ActionBarActivity {
         mv = (MapView) findViewById(R.id.mapview);
         mv.setMinZoomLevel(mv.getTileProvider().getMinimumZoomLevel());
         mv.setMaxZoomLevel(mv.getTileProvider().getMaximumZoomLevel());
-        mv.setCenter(mv.getTileProvider().getCenterCoordinate());
-        mv.setZoom(0);
         currentMap = getResources().getString(R.string.streetMapId);
 
         TextView explorationTitle = (TextView) findViewById(R.id.explorationTitle);
@@ -77,6 +75,11 @@ public class ExplorationMapActivity extends ActionBarActivity {
 
 
         Marker m;
+        Double placesCount = 0.0;
+        Double centerLat = 0.0;
+        Double centerLong = 0.0;
+
+
         for(int x = 0; x < exploration.getMapItemArrayList().size(); x++) {
 
             // Checking if the MapItem is of instance type Area
@@ -89,6 +92,10 @@ public class ExplorationMapActivity extends ActionBarActivity {
                 Log.i( ((Area) exploration.getMapItemArrayList().get(x)).name, "Latitude: " + Double.toString(((Area) exploration.getMapItemArrayList().get(x)).coordinates.get(0).getX()) + "  Longitude: " + Double.toString(((Area) exploration.getMapItemArrayList().get(x)).coordinates.get(0).getY()));
                 m.setIcon(new Icon(this, Icon.Size.LARGE, Integer.toString(x+1), "455A64"));
                 mv.addMarker(m);
+
+                centerLat += project.getAreaArrayList().get(x).coordinates.get(0).getX();
+                centerLong += project.getAreaArrayList().get(x).coordinates.get(0).getY();
+                placesCount++;
             }
 
             // Checking if the MapItem is of instance type Location
@@ -101,11 +108,25 @@ public class ExplorationMapActivity extends ActionBarActivity {
                 m.setIcon(new Icon(this, Icon.Size.LARGE, Integer.toString(x+1), "455A64"));
                 mv.addMarker(m);
 
+                centerLat += project.getLocationArrayList().get(x).latitude;
+                centerLong += project.getLocationArrayList().get(x).longitude;
+                placesCount++;
+
             }
 
         }
 
+        if ( (centerLat == 0.0) && (centerLong == 0.0))
+        {
+            mv.setCenter(mv.getTileProvider().getCenterCoordinate());
+            mv.setZoom(0);
+        }
 
+        else {
+            LatLng centerCoord = new LatLng(centerLat/placesCount, centerLong/placesCount);
+            mv.setCenter(centerCoord);
+            mv.setZoom(13);
+        }
 
         PathOverlay line;
         // Adding Paths between the Markers.

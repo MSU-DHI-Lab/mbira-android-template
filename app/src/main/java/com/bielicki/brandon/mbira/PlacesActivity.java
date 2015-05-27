@@ -162,8 +162,7 @@ public class PlacesActivity extends ActionBarActivity {
         mv = (MapView) findViewById(R.id.mapview);
         mv.setMinZoomLevel(mv.getTileProvider().getMinimumZoomLevel());
         mv.setMaxZoomLevel(mv.getTileProvider().getMaximumZoomLevel());
-
-
+        currentMap = getResources().getString(R.string.streetMapId);
 
         Marker m;
         Double placesCount = 0.0;
@@ -190,11 +189,17 @@ public class PlacesActivity extends ActionBarActivity {
             mv.addMarker(m);
         }
 
-        LatLng centerCoord = new LatLng(centerLat/placesCount, centerLong/placesCount);
+        if ( (centerLat == 0.0) && (centerLong == 0.0))
+        {
+            mv.setCenter(mv.getTileProvider().getCenterCoordinate());
+            mv.setZoom(0);
+        }
 
-        mv.setCenter(centerCoord);
-        mv.setZoom(13);
-        currentMap = getResources().getString(R.string.streetMapId);
+        else {
+            LatLng centerCoord = new LatLng(centerLat/placesCount, centerLong/placesCount);
+            mv.setCenter(centerCoord);
+            mv.setZoom(13);
+        }
 
 
         // On Click Listeners for the mapview
