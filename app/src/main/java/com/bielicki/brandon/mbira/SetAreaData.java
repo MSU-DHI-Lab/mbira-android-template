@@ -80,7 +80,7 @@ public class SetAreaData extends AsyncTask<Void,Void,AppData> {
                     area.project_id = -1;
                 }
                 try {
-                    area.geojson_path = areas.getJSONObject(y).getString("geojson");
+                    area.geojson_path = constants.BASE_PATH + "/JSON/" + areas.getJSONObject(y).getString("geojson");
                 } catch (JSONException e) {
                     area.geojson_path = "";
                 }

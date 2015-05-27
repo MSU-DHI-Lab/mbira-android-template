@@ -30,6 +30,7 @@ import android.widget.Toast;
 
 import com.cocoahero.android.geojson.Feature;
 import com.cocoahero.android.geojson.FeatureCollection;
+import com.cocoahero.android.geojson.GeoJSONObject;
 import com.cocoahero.android.geojson.Polygon;
 import com.cocoahero.android.geojson.Ring;
 import com.github.clans.fab.FloatingActionButton;
@@ -51,6 +52,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -158,17 +162,21 @@ public class PlacesActivity extends ActionBarActivity {
         mv = (MapView) findViewById(R.id.mapview);
         mv.setMinZoomLevel(mv.getTileProvider().getMinimumZoomLevel());
         mv.setMaxZoomLevel(mv.getTileProvider().getMaximumZoomLevel());
-        mv.setCenter(mv.getTileProvider().getCenterCoordinate());
-        mv.setZoom(0);
-        currentMap = getResources().getString(R.string.streetMapId);
+
 
 
         Marker m;
+        Double placesCount = 0.0;
+        Double centerLat = 0.0;
+        Double centerLong = 0.0;
 
         // Adding Locations
         for(int x = 0; x < project.getLocationArrayList().size(); x++) {
             m = new Marker(mv, project.getLocationArrayList().get(x).name, "", new LatLng(project.getLocationArrayList().get(x).latitude, project.getLocationArrayList().get(x).longitude));
             m.setIcon(new Icon(this, Icon.Size.LARGE, "", "3EB9FD"));
+            centerLat += project.getLocationArrayList().get(x).latitude;
+            centerLong += project.getLocationArrayList().get(x).longitude;
+            placesCount++;
             mv.addMarker(m);
         }
 
@@ -176,8 +184,18 @@ public class PlacesActivity extends ActionBarActivity {
         for(int x =0; x < project.getAreaArrayList().size(); x++){
             m = new Marker(mv, project.getAreaArrayList().get(x).name, "", new LatLng(project.getAreaArrayList().get(x).coordinates.get(0).getX(), project.getAreaArrayList().get(x).coordinates.get(0).getY()));
             m.setIcon(new Icon(this, Icon.Size.LARGE, "", "3EB9FD"));
+            centerLat += project.getAreaArrayList().get(x).coordinates.get(0).getX();
+            centerLong += project.getAreaArrayList().get(x).coordinates.get(0).getY();
+            placesCount++;
             mv.addMarker(m);
         }
+
+        LatLng centerCoord = new LatLng(centerLat/placesCount, centerLong/placesCount);
+
+        mv.setCenter(centerCoord);
+        mv.setZoom(13);
+        currentMap = getResources().getString(R.string.streetMapId);
+
 
         // On Click Listeners for the mapview
         mv.setOnClickListener(new View.OnClickListener() {
@@ -262,3 +280,5 @@ public class PlacesActivity extends ActionBarActivity {
     }
 
 }
+
+

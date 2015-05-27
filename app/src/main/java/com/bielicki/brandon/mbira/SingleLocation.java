@@ -29,7 +29,7 @@ public class SingleLocation extends ActionBarActivity {
     private ViewPager mPager;
     private SlidingTabLayout mTabs;
     private static int id = 0;
-    private static Boolean isLocation;
+    private static Boolean isLocation = false;
 
     // Project Data
     static AppData project;
@@ -49,20 +49,22 @@ public class SingleLocation extends ActionBarActivity {
         Double longitude = bundle.getDouble("Longitude");
 
 
-        // Fix the App Crash here
         for(int x = 0; x < project.getLocationArrayList().size(); x++) {
-            if ( (project.getLocationArrayList().get(x).latitude == latitude) && ((project.getLocationArrayList().get(x).longitude == longitude))){
+            if ( (project.getLocationArrayList().get(x).latitude == latitude) && ((project.getLocationArrayList().get(x).longitude == longitude))) {
                 isLocation = true;
                 id = x;
                 break;
             }
+        }
 
-            else if ( (project.getAreaArrayList().get(x).coordinates.get(0).getX() == latitude) && (project.getAreaArrayList().get(x).coordinates.get(0).getY() == longitude)) {
-                isLocation = false;
-                id = x;
-                break;
+        if (!isLocation) {
+            for (int x = 0; x < project.getAreaArrayList().size(); x++) {
+                if ((project.getAreaArrayList().get(x).coordinates.get(0).getX() == latitude) && (project.getAreaArrayList().get(x).coordinates.get(0).getY() == longitude)) {
+                    isLocation = false;
+                    id = x;
+                    break;
+                }
             }
-
         }
 
         // Toobar Creation

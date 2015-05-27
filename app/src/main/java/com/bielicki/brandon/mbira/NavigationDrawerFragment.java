@@ -112,9 +112,6 @@ public class NavigationDrawerFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-//        Intent startRandom = new Intent(this, RandomActivity.class);
-//        startActivity(startRandom);
-
                 Random r = new Random();
                 Integer min = 0;
                 Integer max = 1;
@@ -149,12 +146,12 @@ public class NavigationDrawerFragment extends Fragment {
                     i = r.nextInt(max - min + 1) + min;
 
                     Log.i("Location Chosen: ","Max: " + max + "  i: " + i);
-//            Intent intent = new Intent(this, SingleLocation.class);
-//            Bundle bundle = new Bundle();
-//            bundle.putDouble("Latitude", project.getLocationArrayList().get(i).latitude);
-//            bundle.putDouble("Longitude", project.getLocationArrayList().get(i).longitude);
-//            intent.putExtras(bundle);
-//            startActivity(intent);
+                    Intent intent = new Intent(getActivity(), SingleLocation.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putDouble("Latitude", project.getLocationArrayList().get(i).latitude);
+                    bundle.putDouble("Longitude", project.getLocationArrayList().get(i).longitude);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
                 }
 
                 //Area Chosen
@@ -163,12 +160,12 @@ public class NavigationDrawerFragment extends Fragment {
                     i = r.nextInt(max - min + 1) + min;
 
                     Log.i("Area Chosen: ","Max: " + max + "  i: " + i);
-//            Intent intent = new Intent(this, SingleLocation.class);
-//            Bundle bundle = new Bundle();
-//            bundle.putDouble("Latitude", project.getAreaArrayList().get(i).coordinates.get(0).getX());
-//            bundle.putDouble("Longitude", project.getAreaArrayList().get(i).coordinates.get(0).getY());
-//            intent.putExtras(bundle);
-//            startActivity(intent);
+                    Intent intent = new Intent(getActivity(), SingleLocation.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putDouble("Latitude", project.getAreaArrayList().get(i).coordinates.get(0).getX());
+                    bundle.putDouble("Longitude", project.getAreaArrayList().get(i).coordinates.get(0).getY());
+                    intent.putExtras(bundle);
+                    startActivity(intent);
                 }
             }
         });
