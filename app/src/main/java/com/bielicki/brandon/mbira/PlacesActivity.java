@@ -7,6 +7,8 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
@@ -41,10 +43,14 @@ import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.overlay.Icon;
 import com.mapbox.mapboxsdk.overlay.Marker;
 import com.mapbox.mapboxsdk.overlay.Overlay;
+import com.mapbox.mapboxsdk.overlay.SafeDrawOverlay;
 import com.mapbox.mapboxsdk.overlay.UserLocationOverlay;
 import com.mapbox.mapboxsdk.tileprovider.tilesource.*;
 import com.mapbox.mapboxsdk.views.MapView;
 import com.mapbox.mapboxsdk.views.MapViewListener;
+import com.mapbox.mapboxsdk.views.safecanvas.ISafeCanvas;
+import com.mapbox.mapboxsdk.views.safecanvas.SafeDashPathEffect;
+import com.mapbox.mapboxsdk.views.safecanvas.SafePaint;
 import com.mapbox.mapboxsdk.views.util.TilesLoadedListener;
 import com.vividsolutions.jts.awt.PointShapeFactory;
 
@@ -53,10 +59,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -152,13 +164,13 @@ public class PlacesActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // Show user location
+                mv.setUserLocationEnabled(false);
                 mv.setUserLocationEnabled(true);
                 mv.setUserLocationTrackingMode(UserLocationOverlay.TrackingMode.FOLLOW_BEARING);
             }
         });
 
         // MapBox Code
-
         mv = (MapView) findViewById(R.id.mapview);
         mv.setMinZoomLevel(mv.getTileProvider().getMinimumZoomLevel());
         mv.setMaxZoomLevel(mv.getTileProvider().getMaximumZoomLevel());
@@ -169,25 +181,51 @@ public class PlacesActivity extends ActionBarActivity {
         Double centerLat = 0.0;
         Double centerLong = 0.0;
 
+        mv.loadFromGeoJSONURL("http://mbira.matrix.msu.edu/try/plugins/mbira_plugin/JSON/30_2.geojson");
+
         // Adding Locations
         for(int x = 0; x < project.getLocationArrayList().size(); x++) {
             m = new Marker(mv, project.getLocationArrayList().get(x).name, "", new LatLng(project.getLocationArrayList().get(x).latitude, project.getLocationArrayList().get(x).longitude));
             m.setIcon(new Icon(this, Icon.Size.LARGE, "", "3EB9FD"));
+            m.setDescription(project.getLocationArrayList().get(x).description);
+            mv.addMarker(m);
+
             centerLat += project.getLocationArrayList().get(x).latitude;
             centerLong += project.getLocationArrayList().get(x).longitude;
             placesCount++;
-            mv.addMarker(m);
         }
 
         // Adding Areas
         for(int x =0; x < project.getAreaArrayList().size(); x++){
             m = new Marker(mv, project.getAreaArrayList().get(x).name, "", new LatLng(project.getAreaArrayList().get(x).coordinates.get(0).getX(), project.getAreaArrayList().get(x).coordinates.get(0).getY()));
             m.setIcon(new Icon(this, Icon.Size.LARGE, "", "3EB9FD"));
+            m.setDescription(project.getAreaArrayList().get(x).description);
+            mv.addMarker(m);
+
             centerLat += project.getAreaArrayList().get(x).coordinates.get(0).getX();
             centerLong += project.getAreaArrayList().get(x).coordinates.get(0).getY();
             placesCount++;
-            mv.addMarker(m);
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //  POLYGON TEST
+
+
+        JSONObject json;
+
+        try {
+            json = new JSONObject(readUrl("http://mbira.matrix.msu.edu/try/plugins/mbira_plugin/JSON/30_2.geojson"));
+            Polygon p = new Polygon(json);
+
+        } catch (JSONException e){
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         if ( (centerLat == 0.0) && (centerLong == 0.0))
         {
@@ -237,6 +275,7 @@ public class PlacesActivity extends ActionBarActivity {
 
             @Override
             public void onTapMarker(MapView mapView, Marker marker) {
+
             }
 
             @Override
@@ -282,6 +321,25 @@ public class PlacesActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    // Function to read content of the URL
+    private static String readUrl(String urlString) throws Exception {
+        BufferedReader reader = null;
+        try {
+            URL url = new URL(urlString);
+            reader = new BufferedReader(new InputStreamReader(url.openStream()));
+            StringBuffer buffer = new StringBuffer();
+            int read;
+            char[] chars = new char[1024];
+            while ((read = reader.read(chars)) != -1)
+                buffer.append(chars, 0, read);
+
+            return buffer.toString();
+        } finally {
+            if (reader != null)
+                reader.close();
+        }
     }
 
 }
