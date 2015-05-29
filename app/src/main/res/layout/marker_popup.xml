@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/relative_container"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tooltip_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/placeholder"
+        android:textColor="#36464E"
+        android:background="@android:color/darker_gray"
+        />
+
+    <TextView
+        android:id="@+id/tooltip_description"
+        android:layout_alignRight="@+id/tooltip_title"
+        android:layout_alignLeft="@+id/tooltip_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/placeholder"
+        android:textColor="#36464E"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@+id/tooltip_title"
+        />
+
+    <TextView
+        android:id="@+id/tooltip_subdescription"
+        android:layout_alignRight="@+id/tooltip_title"
+        android:layout_alignLeft="@+id/tooltip_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/placeholder"
+        android:textColor="#36464E"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@+id/tooltip_description"
+        />
+
+    <ImageView
+        android:id="@+id/tooltip_image"
+        android:layout_alignRight="@+id/tooltip_title"
+        android:layout_alignLeft="@+id/tooltip_title"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/beaumont"
+        android:textColor="#36464E"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@+id/tooltip_subdescription"
+        />
+
+</RelativeLayout>

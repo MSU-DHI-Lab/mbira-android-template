@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Handler;
@@ -20,6 +22,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.webkit.JavascriptInterface;
@@ -47,6 +50,7 @@ import com.mapbox.mapboxsdk.overlay.Overlay;
 import com.mapbox.mapboxsdk.overlay.SafeDrawOverlay;
 import com.mapbox.mapboxsdk.overlay.UserLocationOverlay;
 import com.mapbox.mapboxsdk.tileprovider.tilesource.*;
+import com.mapbox.mapboxsdk.views.InfoWindow;
 import com.mapbox.mapboxsdk.views.MapView;
 import com.mapbox.mapboxsdk.views.MapViewListener;
 import com.mapbox.mapboxsdk.views.safecanvas.ISafeCanvas;
@@ -66,7 +70,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -188,6 +194,30 @@ public class PlacesActivity extends ActionBarActivity {
         for(int x = 0; x < project.getLocationArrayList().size(); x++) {
             m = new Marker(mv, project.getLocationArrayList().get(x).name, "", new LatLng(project.getLocationArrayList().get(x).latitude, project.getLocationArrayList().get(x).longitude));
             m.setIcon(new Icon(this, Icon.Size.LARGE, "", "455A64"));
+            m.setTitle(project.getLocationArrayList().get(x).name);
+
+            //////////////////////////////////////////////////////////////////// Custom Style Pop-up Code   //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//
+//            InfoWindow window = new InfoWindow(R.layout.marker_popup, mv);
+//            final Integer k = x;
+//            window.setOnTouchListener(new View.OnTouchListener() {
+//                @Override
+//                public boolean onTouch(View v, MotionEvent event) {
+//                    Intent i = new Intent(PlacesActivity.this, SingleLocation.class);
+//                    Bundle bundle = new Bundle();
+//                    bundle.putDouble("Latitude", project.getLocationArrayList().get(k).latitude);
+//                    bundle.putDouble("Longitude", project.getLocationArrayList().get(k).longitude);
+//                    i.putExtras(bundle);
+//                    startActivity(i);
+//                    return false;
+//                }
+//            });
+//            m.setToolTip(window);
+
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
             m.setDescription(project.getLocationArrayList().get(x).description);
             mv.addMarker(m);
 
@@ -200,6 +230,29 @@ public class PlacesActivity extends ActionBarActivity {
         for(int x =0; x < project.getAreaArrayList().size(); x++){
             m = new Marker(mv, project.getAreaArrayList().get(x).name, "", new LatLng(project.getAreaArrayList().get(x).coordinates.get(0).getX(), project.getAreaArrayList().get(x).coordinates.get(0).getY()));
             m.setIcon(new Icon(this, Icon.Size.LARGE, "", "455A64"));
+            m.setTitle(project.getAreaArrayList().get(x).name);
+
+            //////////////////////////////////////////////////////////////////// Custom Style Pop-up Code   //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//            InfoWindow window = new InfoWindow(R.layout.marker_popup, mv);
+//            final Integer k = x;
+//            window.setOnTouchListener(new View.OnTouchListener() {
+//                @Override
+//                public boolean onTouch(View v, MotionEvent event) {
+//                    Intent i = new Intent(PlacesActivity.this, SingleLocation.class);
+//                    Bundle bundle = new Bundle();
+//                    bundle.putDouble("Latitude", project.getAreaArrayList().get(k).coordinates.get(0).getX());
+//                    bundle.putDouble("Longitude", project.getAreaArrayList().get(k).coordinates.get(0).getY());
+//                    i.putExtras(bundle);
+//                    startActivity(i);
+//                    return false;
+//                }
+//            });
+//            m.setToolTip(window);
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
             m.setDescription(project.getAreaArrayList().get(x).description);
             mv.addMarker(m);
 
@@ -212,17 +265,17 @@ public class PlacesActivity extends ActionBarActivity {
         //  POLYGON TEST
 
 
-        JSONObject json;
-
-        try {
-            json = new JSONObject(readUrl("http://mbira.matrix.msu.edu/try/plugins/mbira_plugin/JSON/30_2.geojson"));
-            new GeoJSONPainter(mv, null).loadFromURL("http://mbira.matrix.msu.edu/try/plugins/mbira_plugin/JSON/30_2.geojson");
-
-        } catch (JSONException e){
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        JSONObject json;
+//
+//        try {
+//            json = new JSONObject(readUrl("http://mbira.matrix.msu.edu/try/plugins/mbira_plugin/JSON/30_2.geojson"));
+//            new GeoJSONPainter(mv, null).loadFromURL("http://mbira.matrix.msu.edu/try/plugins/mbira_plugin/JSON/30_2.geojson");
+//
+//        } catch (JSONException e){
+//            e.printStackTrace();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
 
 
