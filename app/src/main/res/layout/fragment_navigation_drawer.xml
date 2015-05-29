@@ -41,6 +41,14 @@
             android:src="@drawable/projectlogo"
             />
 
+        <ImageButton
+            android:id="@+id/homeButton"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignBottom="@+id/drawerImage"
+            android:background="@android:color/transparent"
+            />
+
         <TextView
             android:id="@+id/projectTitle"
             android:layout_width="wrap_content"
@@ -61,7 +69,8 @@
             android:layout_below="@+id/drawerImage"
             android:adjustViewBounds="true"
             android:background="@color/white"
-            android:padding="0dp"
+            android:layout_marginTop="5dp"
+            android:paddingTop="0dp"
             android:src="@drawable/exhibitsnav" />
 
         <ImageButton

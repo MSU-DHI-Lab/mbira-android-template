@@ -66,6 +66,7 @@
     <string name="placeholder">PlaceHolder</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+    <string name="title_activity_location_map">LocationMapActivity</string>
 
 
 </resources>

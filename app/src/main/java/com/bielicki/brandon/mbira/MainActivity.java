@@ -44,6 +44,7 @@ public class MainActivity extends ActionBarActivity {
         //toolbar.setTitle(project.getProjectName());
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("");
 
         projectTitle = (TextView) findViewById(R.id.projectTitle);
         projectImageView = (ImageView) findViewById(R.id.projectImageView);

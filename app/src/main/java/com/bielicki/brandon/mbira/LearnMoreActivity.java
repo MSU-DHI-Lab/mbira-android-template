@@ -26,7 +26,7 @@ public class LearnMoreActivity extends ActionBarActivity {
         setContentView(R.layout.activity_learn_more);
 
         toolbar = (Toolbar) findViewById(R.id.app_bar_transparent);
-        toolbar.setTitle("Learn more about the Project");
+        toolbar.setTitle("Learn More");
         setSupportActionBar(toolbar);
 
         NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
@@ -37,6 +37,9 @@ public class LearnMoreActivity extends ActionBarActivity {
 
         TextView project_title = (TextView) findViewById(R.id.exhibitTitle);
         project_title.setText(project.getProjectName());
+
+        TextView project_subdesc = (TextView) findViewById(R.id.project_subtitle);
+        project_subdesc.setText(project.getProjectShortDescription());
 
         project_description.setMovementMethod(new ScrollingMovementMethod());
         projectImage = (ImageView) findViewById(R.id.explorationImageView);

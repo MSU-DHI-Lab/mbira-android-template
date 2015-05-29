@@ -82,6 +82,7 @@ public class NavigationDrawerFragment extends Fragment {
         ImageButton randomNav = (ImageButton) getView().findViewById(R.id.randomImage);
         ImageButton learnNav = (ImageButton) getView().findViewById(R.id.learnImage);
         ImageButton signInNav = (ImageButton) getView().findViewById(R.id.signInImage);
+        ImageButton homeButton = (ImageButton) getView().findViewById(R.id.homeButton);
 
         exhibitNav.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -183,6 +184,14 @@ public class NavigationDrawerFragment extends Fragment {
             public void onClick(View v) {
                 Intent startSignIn = new Intent(getActivity(), SignInActivity.class);
                 startActivity(startSignIn);
+            }
+        });
+
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent main = new Intent(getActivity(), MainActivity.class);
+                startActivity(main);
             }
         });
     }

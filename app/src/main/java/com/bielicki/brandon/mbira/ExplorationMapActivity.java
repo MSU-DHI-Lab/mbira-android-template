@@ -189,41 +189,12 @@ public class ExplorationMapActivity extends ActionBarActivity {
             }
         }, 300);
 
-//        randomLocationButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Random r = new Random();
-//                Integer min = 0;
-//                Integer max = exploration.getMapItemArrayList().size() - 1;
-//                Integer i = r.nextInt(max - min + 1) + min;
-//
-//                if (!max.equals(-1)) {
-//                    Intent intent = new Intent(ExplorationMapActivity.this, SingleLocation.class);
-//                    Bundle bundle = new Bundle();
-//
-//                    // Checking if the MapItem is of instance type Area
-//                    if (exploration.getMapItemArrayList().get(i) instanceof Area) {
-//                        bundle.putDouble("Latitude", ((Area) exploration.getMapItemArrayList().get(i)).coordinates.get(0).getX());
-//                        bundle.putDouble("Longitude", ((Area) exploration.getMapItemArrayList().get(i)).coordinates.get(0).getY());
-//                    }
-//
-//                    // Checking if the MapItem is of instance type Location
-//                    else if (exploration.getMapItemArrayList().get(i) instanceof Location) {
-//                        bundle.putDouble("Latitude", ((Location) exploration.getMapItemArrayList().get(i)).latitude);
-//                        bundle.putDouble("Longitude", ((Location) exploration.getMapItemArrayList().get(i)).longitude);
-//                    }
-//
-//                    intent.putExtras(bundle);
-//                    startActivity(intent);
-//                }
-//
-//            }
-//        });
 
         findMyLocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Show user location
+                mv.setUserLocationEnabled(false);
                 mv.setUserLocationEnabled(true);
                 mv.setUserLocationTrackingMode(UserLocationOverlay.TrackingMode.FOLLOW_BEARING);
             }

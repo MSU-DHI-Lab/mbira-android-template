@@ -1,7 +1,9 @@
 package com.bielicki.brandon.mbira;
 
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -19,9 +21,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.github.clans.fab.FloatingActionButton;
 
 
 public class SingleLocation extends ActionBarActivity {
@@ -89,6 +94,28 @@ public class SingleLocation extends ActionBarActivity {
             locationImage.setImageBitmap(project.getAreaArrayList().get(id).areaImage);
             titleTextView.setText(project.getAreaArrayList().get(id).name);
         }
+
+        final FloatingActionButton goToMapButton = (FloatingActionButton) findViewById(R.id.goToMapButton);
+        goToMapButton.hide(false);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                goToMapButton.show(true);
+                goToMapButton.setShowAnimation(AnimationUtils.loadAnimation(SingleLocation.this, R.anim.show_from_buttom));
+                goToMapButton.setHideAnimation(AnimationUtils.loadAnimation(SingleLocation.this, R.anim.hide_to_buttom));
+            }
+        }, 300);
+
+        goToMapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startLocationMap = new Intent(SingleLocation.this, LocationMapActivity.class);
+                startLocationMap.putExtra("isLocation", isLocation);
+                startLocationMap.putExtra("pos", id);
+                startActivity(startLocationMap);
+            }
+        });
 
 
 

@@ -8,12 +8,14 @@ import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.webkit.WebView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.mapbox.mapboxsdk.api.ILatLng;
@@ -76,7 +78,7 @@ public class ExhibitMapActivity extends ActionBarActivity {
         // Loading all the location markers in the exhibit chosen
         for(int x = 0; x < exhibit.getLocationArrayList().size(); x++) {
             m = new Marker(mv, exhibit.getLocationArrayList().get(x).name, "", new LatLng(exhibit.getLocationArrayList().get(x).latitude, exhibit.getLocationArrayList().get(x).longitude));
-            m.setIcon(new Icon(this, Icon.Size.LARGE, "", "3EB9FD"));
+            m.setIcon(new Icon(this, Icon.Size.LARGE, "", "455A64"));
             mv.addMarker(m);
 
             centerLat += project.getLocationArrayList().get(x).latitude;
@@ -87,7 +89,7 @@ public class ExhibitMapActivity extends ActionBarActivity {
         // Loading all the area markers in the exhibit chosen
         for(int x = 0; x < exhibit.getAreaArrayList().size(); x++) {
             m = new Marker(mv, exhibit.getAreaArrayList().get(x).name, "", new LatLng(exhibit.getAreaArrayList().get(x).coordinates.get(0).getX(), exhibit.getAreaArrayList().get(x).coordinates.get(0).getY()));
-            m.setIcon(new Icon(this, Icon.Size.LARGE, "", "3EB9FD"));
+            m.setIcon(new Icon(this, Icon.Size.LARGE, "", "455A64"));
             mv.addMarker(m);
 
             centerLat += project.getAreaArrayList().get(x).coordinates.get(0).getX();
@@ -138,6 +140,20 @@ public class ExhibitMapActivity extends ActionBarActivity {
                 Integer max = 1;
                 Integer i = r.nextInt(max - min + 1) + min;
 
+                if (exhibit.getLocationArrayList().isEmpty() && exhibit.getAreaArrayList().isEmpty()){
+                    Toast.makeText(getApplicationContext(), "No Locations are present in the exhibit",
+                            Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                else if(exhibit.getLocationArrayList().isEmpty() && !exhibit.getAreaArrayList().isEmpty()){
+                    i = 0;
+                }
+
+                else if(exhibit.getAreaArrayList().isEmpty() && !exhibit.getLocationArrayList().isEmpty()){
+                    i = 1;
+                }
+
                 // Location Chosen
                 if (i.equals(1)) {
                     max = exhibit.getLocationArrayList().size() - 1;
@@ -168,6 +184,7 @@ public class ExhibitMapActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // Show user location
+                mv.setUserLocationEnabled(false);
                 mv.setUserLocationEnabled(true);
                 mv.setUserLocationTrackingMode(UserLocationOverlay.TrackingMode.FOLLOW_BEARING);
             }

@@ -87,11 +87,6 @@ public class SingleExplorationActivity extends ActionBarActivity {
             }
         });
 
-
-
-//        ImageView explorationImage = (ImageView) findViewById(R.id.explorationImageView);
-//        explorationImage.setImageBitmap(exploration.explorationImage);
-
         mPager = (ViewPager) findViewById(R.id.locationPager);
         mPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
         mTabs = (SlidingTabLayout) findViewById(R.id.locationsTab);

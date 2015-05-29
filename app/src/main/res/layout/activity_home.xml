@@ -18,7 +18,6 @@
             android:gravity="bottom"
             android:orientation="vertical">
 
-
             <RelativeLayout
                 android:id="@+id/projectImage"
                 android:layout_width="fill_parent"
@@ -82,7 +81,7 @@
                             android:layout_below="@+id/projectTitle"
                             android:layout_marginLeft="15dp"
                             android:layout_marginRight="15dp"
-                            android:maxLength="140"
+                            android:maxLength="150"
                             android:text="@string/placeholder"
                             android:textColor="#ffffffff"
                             android:textStyle="bold" />

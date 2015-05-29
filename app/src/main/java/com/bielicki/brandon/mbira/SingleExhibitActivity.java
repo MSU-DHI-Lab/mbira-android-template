@@ -1,6 +1,7 @@
 package com.bielicki.brandon.mbira;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -8,8 +9,11 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.github.clans.fab.FloatingActionButton;
 
 
 public class SingleExhibitActivity extends ActionBarActivity {
@@ -43,6 +47,26 @@ public class SingleExhibitActivity extends ActionBarActivity {
 
         ImageView exhibitImage = (ImageView) findViewById(R.id.exhibitImageView);
         exhibitImage.setImageBitmap(exhibit.exhibitImage);
+
+
+        final FloatingActionButton goToMapButton = (FloatingActionButton) findViewById(R.id.goToMapButton);
+        goToMapButton.hide(false);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                goToMapButton.show(true);
+                goToMapButton.setShowAnimation(AnimationUtils.loadAnimation(SingleExhibitActivity.this, R.anim.show_from_buttom));
+                goToMapButton.setHideAnimation(AnimationUtils.loadAnimation(SingleExhibitActivity.this, R.anim.hide_to_buttom));
+            }
+        }, 300);
+
+        goToMapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                exhibitMap(v);
+            }
+        });
     }
 
 

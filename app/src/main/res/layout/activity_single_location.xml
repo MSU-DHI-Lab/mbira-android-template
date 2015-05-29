@@ -13,7 +13,7 @@
         <ImageView
             android:id="@+id/singleLocationImageView"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="200dp"
             android:layout_centerHorizontal="true"
             android:scaleType="centerCrop"
             android:src="@drawable/beaumont" />
@@ -33,17 +33,34 @@
             android:layout_height="wrap_content"
             />
 
+        <TextView
+            android:id="@+id/singleLocationTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageOverlay"
+            android:background="#445963"
+            android:text="@string/placeholder"
+            android:padding="20dp"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/goToMapButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/map"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentLeft="false"
+            android:layout_marginTop="165dp"
+            />
+
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/singleLocationTitleTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#445963"
-        android:padding="20dp"
-        android:textSize="20dp"
-        android:textColor="@color/white"
-        />
 
     <com.bielicki.brandon.mbira.SlidingTabLayout
         android:id="@+id/locationsTab"

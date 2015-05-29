@@ -21,7 +21,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
                 android:id="@+id/exhibitImageView"
                 android:layout_centerHorizontal="true"
                 android:adjustViewBounds="true"
@@ -52,21 +52,35 @@
                 android:layout_alignParentStart="true"
                 android:textColor="@android:color/white"
                 android:padding="20dp"
-                android:layout_above="@+id/exhibitDescription"
-                android:background="#7d000000" />
+                android:layout_below="@+id/exhibitImageView"
+                android:background="#445963" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/goToMapButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/map"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="false"
+                android:layout_alignParentStart="false"
+                android:layout_alignParentLeft="false"
+                android:layout_marginTop="165dp"
+                />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent"
                 android:text="@string/project_description"
                 android:id="@+id/exhibitDescription"
-                android:layout_below="@+id/exhibitImageView"
+                android:layout_below="@+id/exhibitTitle"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="false"
                 android:layout_alignParentRight="false"
                 android:textColor="@android:color/white"
-                android:background="#445963"
+                android:background="#253137"
                 android:fillViewport = "true"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"

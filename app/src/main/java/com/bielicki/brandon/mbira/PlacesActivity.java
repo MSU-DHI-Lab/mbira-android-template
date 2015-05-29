@@ -40,6 +40,7 @@ import com.github.clans.fab.FloatingActionButton;
 import com.mapbox.mapboxsdk.api.ILatLng;
 import com.mapbox.mapboxsdk.geometry.BoundingBox;
 import com.mapbox.mapboxsdk.geometry.LatLng;
+import com.mapbox.mapboxsdk.overlay.GeoJSONPainter;
 import com.mapbox.mapboxsdk.overlay.Icon;
 import com.mapbox.mapboxsdk.overlay.Marker;
 import com.mapbox.mapboxsdk.overlay.Overlay;
@@ -186,7 +187,7 @@ public class PlacesActivity extends ActionBarActivity {
         // Adding Locations
         for(int x = 0; x < project.getLocationArrayList().size(); x++) {
             m = new Marker(mv, project.getLocationArrayList().get(x).name, "", new LatLng(project.getLocationArrayList().get(x).latitude, project.getLocationArrayList().get(x).longitude));
-            m.setIcon(new Icon(this, Icon.Size.LARGE, "", "3EB9FD"));
+            m.setIcon(new Icon(this, Icon.Size.LARGE, "", "455A64"));
             m.setDescription(project.getLocationArrayList().get(x).description);
             mv.addMarker(m);
 
@@ -198,7 +199,7 @@ public class PlacesActivity extends ActionBarActivity {
         // Adding Areas
         for(int x =0; x < project.getAreaArrayList().size(); x++){
             m = new Marker(mv, project.getAreaArrayList().get(x).name, "", new LatLng(project.getAreaArrayList().get(x).coordinates.get(0).getX(), project.getAreaArrayList().get(x).coordinates.get(0).getY()));
-            m.setIcon(new Icon(this, Icon.Size.LARGE, "", "3EB9FD"));
+            m.setIcon(new Icon(this, Icon.Size.LARGE, "", "455A64"));
             m.setDescription(project.getAreaArrayList().get(x).description);
             mv.addMarker(m);
 
@@ -215,7 +216,7 @@ public class PlacesActivity extends ActionBarActivity {
 
         try {
             json = new JSONObject(readUrl("http://mbira.matrix.msu.edu/try/plugins/mbira_plugin/JSON/30_2.geojson"));
-            Polygon p = new Polygon(json);
+            new GeoJSONPainter(mv, null).loadFromURL("http://mbira.matrix.msu.edu/try/plugins/mbira_plugin/JSON/30_2.geojson");
 
         } catch (JSONException e){
             e.printStackTrace();

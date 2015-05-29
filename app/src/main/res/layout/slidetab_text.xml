@@ -8,8 +8,10 @@
         android:id="@+id/position"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="20sp"
-        android:layout_margin="10sp"
+        android:textSize="15dp"
+        android:layout_margin="10dp"
+        android:paddingTop="5dp"
+        android:paddingLeft="10dp"
         android:textColor="@color/white"
         android:text="ABCDEFGHIJKLMOPQRSTUVWXYZ" />
 

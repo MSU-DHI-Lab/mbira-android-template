@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="0dp"
+    tools:context="com.bielicki.brandon.mbira.LocationMapActivity">
+
+    <com.mapbox.mapboxsdk.views.MapView
+        android:id="@+id/mapview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/app_bar"
+        mapbox:accessToken="@string/testAccessToken"
+        mapbox:mapid="@string/streetMapId"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/locationTitle"/>
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar_transparent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/findMyLocationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mylocation"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@id/locationTitle"
+        />
+
+    <TextView
+        android:id="@+id/locationTitle"
+        android:textColor="@color/white"
+        android:text="@string/placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#445963"
+        android:paddingLeft="20dp"
+        android:gravity="center_vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

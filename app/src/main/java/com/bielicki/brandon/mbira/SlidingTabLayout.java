@@ -49,6 +49,11 @@ import android.widget.TextView;
  * providing the layout ID of your custom layout.
  */
 public class SlidingTabLayout extends HorizontalScrollView {
+
+    // Self Added Variable
+    View oldSelection = null; // new field indicating old selected item
+
+
     /**
      * Allows complete control over the colors drawn in the tab layout. Set with
      * {@link #setCustomTabColorizer(TabColorizer)}.
@@ -184,6 +189,10 @@ public class SlidingTabLayout extends HorizontalScrollView {
     }
 
     private void populateTabStrip() {
+        removeOldSelection(); // add those two lines
+        oldSelection = null;
+
+
         final PagerAdapter adapter = mViewPager.getAdapter();
         final View.OnClickListener tabClickListener = new TabClickListener();
 
@@ -240,6 +249,23 @@ public class SlidingTabLayout extends HorizontalScrollView {
     }
 
     private void scrollToTab(int tabIndex, int positionOffset) {
+//        final int tabStripChildCount = mTabStrip.getChildCount();
+//        if (tabStripChildCount == 0 || tabIndex < 0 || tabIndex >= tabStripChildCount) {
+//            return;
+//        }
+//
+//        View selectedChild = mTabStrip.getChildAt(tabIndex);
+//        if (selectedChild != null) {
+//            int targetScrollX = selectedChild.getLeft() + positionOffset;
+//
+//            if (tabIndex > 0 || positionOffset > 0) {
+//                // If we're not at the first child and are mid-scroll, make sure we obey the offset
+//                targetScrollX -= mTitleOffset;
+//            }
+//
+//            scrollTo(targetScrollX, 0);
+//        }
+
         final int tabStripChildCount = mTabStrip.getChildCount();
         if (tabStripChildCount == 0 || tabIndex < 0 || tabIndex >= tabStripChildCount) {
             return;
@@ -247,6 +273,13 @@ public class SlidingTabLayout extends HorizontalScrollView {
 
         View selectedChild = mTabStrip.getChildAt(tabIndex);
         if (selectedChild != null) {
+
+            if(positionOffset == 0 && selectedChild != oldSelection) { // added part
+                selectedChild.setSelected(true);
+                removeOldSelection();
+                oldSelection = selectedChild;
+            }
+
             int targetScrollX = selectedChild.getLeft() + positionOffset;
 
             if (tabIndex > 0 || positionOffset > 0) {
@@ -318,5 +351,15 @@ public class SlidingTabLayout extends HorizontalScrollView {
             }
         }
     }
+
+
+    // Custom Change
+    // method to remove `selected` state from old one
+    private void removeOldSelection() {
+        if(oldSelection != null) {
+            oldSelection.setSelected(false);
+        }
+    }
+
 
 }
